@@ -1,0 +1,130 @@
+generated: '2026-07-27'
+method: probed
+source: >-
+  Live anonymous error probes against
+  https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services on 2026-07-27.
+  Every entry below was reproduced against the real services; none is copied from vendor
+  documentation and none is invented.
+format: esri-rest-error
+format_note: >-
+  NOT RFC 9457. Essential Energy's public surface does not emit application/problem+json.
+  Errors are returned as an Esri JSON error envelope with content-type application/json
+  and — critically — an HTTP 200 status line.
+envelope:
+  shape: '{"error":{"code":<int>,"message":<string>,"details":[<string>,...]}}'
+  fields:
+  - name: error.code
+    type: integer
+    note: >-
+      An ArcGIS status code that mirrors HTTP semantics but is carried in the body. 400
+      was the only code observed on this surface.
+  - name: error.message
+    type: string
+    note: May be an empty string; the useful text is then only in details[].
+  - name: error.details
+    type: array of string
+  transport_status: 200
+  agent_rule: >-
+    Parse the body and test for an "error" key before treating a 200 as success. A client
+    that branches on HTTP status alone will silently ingest error objects as data.
+problems:
+- id: invalid-url
+  http_status: 200
+  code: 400
+  title: Invalid URL
+  message: Invalid URL
+  details:
+  - Invalid URL
+  causes:
+  - Requesting a layer id that does not exist on the service.
+  - Requesting a service name that does not exist in the organisation.
+  - Requesting a sub-resource the service does not implement (for example OGCFeatureServer).
+  remediation: >-
+    Enumerate real layer ids from the FeatureServer descriptor before querying. Layer ids
+    are NOT zero-based across this organisation — HostingCapacity_Substation_GEN exposes
+    layer 1 only, HostingCapacity_Substation_LOAD exposes layer 11, streetlight__STLT_
+    exposes layer 40, zonesubstationsite__ZSSS_ exposes layer 84.
+  reproduced:
+  - request: >-
+      GET /HostingCapacity_Substation_GEN/FeatureServer/0/query?where=1%3D1&f=json
+    status: 200
+  - request: GET /No_Such_Service/FeatureServer?f=json
+    status: 200
+  - request: GET /HostingCapacity_Substation_GEN/OGCFeatureServer?f=json
+    status: 200
+- id: invalid-query-field
+  http_status: 200
+  code: 400
+  title: Cannot perform query. Invalid query parameters.
+  message: Cannot perform query. Invalid query parameters.
+  details:
+  - "'Invalid field: bogusfield' parameter is invalid"
+  causes:
+  - A where clause referencing a column that does not exist on the layer.
+  remediation: >-
+    Read the layer's fields[] from /<service>/FeatureServer/<layerId>?f=json, or use the
+    harvested dictionary in vocabulary/essential-energy-vocabulary.yml. Field names on
+    this surface are truncated ten-character shapefile-style names (ASSET_LABE,
+    PRIMARY_VO, CONSTRUCTI), so guessing them fails.
+  reproduced:
+  - request: >-
+      GET /HostingCapacity_Substation_GEN/FeatureServer/1/query?where=bogusfield%3D1&outFields=*&f=json
+    status: 200
+    saved: examples/essential-energy-error-invalid-field-response.json
+- id: invalid-outfields
+  http_status: 200
+  code: 400
+  title: Cannot perform query. Invalid query parameters.
+  message: Cannot perform query. Invalid query parameters.
+  details:
+  - "'outFields' parameter is invalid"
+  causes:
+  - outFields naming a column that does not exist on the layer.
+  remediation: Use outFields=* or names taken from the layer descriptor.
+  reproduced:
+  - request: >-
+      GET /HostingCapacity_Substation_GEN/FeatureServer/1/query?where=1%3D1&outFields=NOPE&f=json
+    status: 200
+- id: operation-not-supported
+  http_status: 200
+  code: 400
+  title: This operation is not supported.
+  message: ''
+  details:
+  - This operation is not supported.
+  causes:
+  - Calling a write or admin operation on a service whose capabilities are Query or Query,Extract.
+  remediation: >-
+    Read capabilities from the FeatureServer descriptor. The public surface is read-only;
+    treat any write path as unavailable.
+  reproduced:
+  - request: GET /HostingCapacity_Substation_GEN/FeatureServer/1/applyEdits?f=json
+    status: 200
+- id: bad-request-format
+  http_status: 400
+  code: null
+  title: Bad Request
+  message: Bad Request
+  details: []
+  content_type: text/plain
+  causes:
+  - An unrecognised value for the f (format) parameter.
+  remediation: Use f=json, f=geojson, f=pbf or f=html.
+  note: >-
+    The only observed condition that produces a real HTTP error status and a non-JSON
+    body. A client's error handling must cope with both shapes.
+  reproduced:
+  - request: >-
+      GET /HostingCapacity_Substation_GEN/FeatureServer/1/query?where=1%3D1&f=bogus
+    status: 400
+not_present:
+  problem_json: No application/problem+json response was produced by any probe.
+  error_reference_page: >-
+    Essential Energy publishes no error reference. www.essentialenergy.com.au returns 403
+    to all automated clients (Cloudflare bot management), and the DAPR and Engage hosts
+    carry no developer documentation.
+  retry_after: No Retry-After or rate-limit error was observed.
+cross_references:
+  conventions: conventions/essential-energy-conventions.yml
+  vocabulary: vocabulary/essential-energy-vocabulary.yml
+  examples: examples/essential-energy-examples.yml

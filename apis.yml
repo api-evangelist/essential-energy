@@ -145,6 +145,8 @@ apis:
   - type: APIReference
     url: https://developers.arcgis.com/rest/services-reference/enterprise/feature-service/
 common:
+- type: DomainSecurity
+  url: security/essential-energy-domain-security.yml
 - type: Website
   url: https://www.essentialenergy.com.au/
 - type: LinkedIn
@@ -161,6 +163,48 @@ common:
   url: arcgis/essential-energy-arcgis-public-items.json
 - type: Reference
   url: arcgis/essential-energy-arcgis-portal-self.json
+- type: Reference
+  url: arcgis/essential-energy-arcgis-rest-info.json
+- type: Reference
+  url: arcgis/essential-energy-service-capabilities.json
+- type: Reference
+  url: arcgis/essential-energy-layer-field-schemas.json
+- type: Reference
+  url: well-known/essential-energy-well-known.yml
+- type: Authentication
+  url: authentication/essential-energy-authentication.yml
+- type: Conventions
+  url: conventions/essential-energy-conventions.yml
+- type: ErrorCatalog
+  url: errors/essential-energy-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/essential-energy-lifecycle.yml
+- type: Conformance
+  url: conformance/essential-energy-conformance.yml
+- type: Vocabulary
+  url: vocabulary/essential-energy-vocabulary.yml
+- type: DataModel
+  url: data-model/essential-energy-data-model.yml
+- type: Examples
+  url: examples/essential-energy-examples.yml
+- type: AgenticAccess
+  url: agentic-access/essential-energy-agentic-access.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/essential-energy-llms.txt
+- type: VulnerabilityDisclosure
+  url: security/essential-energy-vulnerability-disclosure.yml
+- type: Security
+  url: https://www.essentialenergy.com.au/about-us/corporate-governance/vulnerability-disclosure-policy
+- type: Support
+  url: https://www.essentialenergy.com.au/contact-us
+- type: Blog
+  url: https://www.essentialenergy.com.au/media-centre/media-release
+- type: PrivacyPolicy
+  url: https://www.essentialenergy.com.au/privacy
+- type: TermsOfService
+  url: https://www.essentialenergy.com.au/termsofuse
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

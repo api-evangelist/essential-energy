@@ -1,0 +1,1011 @@
+{
+ "harvested": "2026-07-27",
+ "source": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/<service>/FeatureServer?f=json",
+ "services": [
+  {
+   "service": "3rdpartyattachment__ATTH_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    69
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "aerialstay__AIRS_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    64
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "airbreakswitch__ARBS_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    32
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "cableswitch__CBSW_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    57
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "capacitorbank__CAPB_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    42
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "catenarywire__CATW_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    63
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "circuitbreaker_component__CBKC_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    59
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "Com_Sites",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    0
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "Connectors_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    5
+   ],
+   "tables": [],
+   "serviceDescription": "EE Conectors"
+  },
+  {
+   "service": "Cubicles",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    4
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "DGN_Tiles",
+   "capabilities": "Query,ChangeTracking",
+   "maxRecordCount": 2000,
+   "layers": [
+    5
+   ],
+   "tables": [],
+   "serviceDescription": "Background Tiles"
+  },
+  {
+   "service": "earth__ERTH_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    61
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "earthswitch_component__EASC_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    53
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "earthwire__EARW_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    38
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "enclosure__ENCA_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    36
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "enclosure_component__ENCC_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    62
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "faultindicator__FAIN_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    70
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "faultindicatorset__FAIS_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    71
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "firelay__FIRY_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    72
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "fusesaver__FUSA_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    73
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "fusesaverset__FUSS_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    35
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "fuseset__FUSE_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    34
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "fuseswitch__FSWT_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    60
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "groundstay__GSTY_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    65
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "Hist_Fires",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    5
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "hvswitchgear__HCSG_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    74
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "Inland_Rail",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    5
+   ],
+   "tables": [],
+   "serviceDescription": "INLAND RAIL Public Facing Alignment (26 June 2023)\n\nThe alignment layer is currently utilized on a temporary basis and is not intended for external distribution."
+  },
+  {
+   "service": "joint__JNTS_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    76
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "LGAs",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    0
+   ],
+   "tables": [],
+   "serviceDescription": "LGSs for clipping"
+  },
+  {
+   "service": "linkset__LINK_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    55
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "linkswitch__LNSW_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    56
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "loadbreakswitch__LBSH_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    33
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "lvswitchboard__LVSG_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    75
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "meteringunit__MTUT_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    77
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "nightwatchlight__NWLT_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    78
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "OH_Span_TX",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    13
+   ],
+   "tables": [],
+   "serviceDescription": "Display OH TX"
+  },
+  {
+   "service": "pillar__PILL_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    30
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "pit__PITT_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    31
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "reactortank__RTRT_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    52
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "reclosertank__RECT_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    25
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "regulatortank__REGT_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    26
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "reinforcement__REIN_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    68
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "sectionaliserset__SECS_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    44
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "sectionalisertank__SECT_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    45
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "servicepoint__SRPT_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    28
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "spansupport__SPAS_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    79
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "streetlight__STLT_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    40
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "Streetlights_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    1
+   ],
+   "tables": [],
+   "serviceDescription": "EE Streetlights"
+  },
+  {
+   "service": "Sub_Cables",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    0
+   ],
+   "tables": [],
+   "serviceDescription": "cables - sub cap"
+  },
+  {
+   "service": "Substation",
+   "capabilities": "Query,Extract",
+   "maxRecordCount": 2000,
+   "layers": [
+    0
+   ],
+   "tables": [],
+   "serviceDescription": "EE Substation"
+  },
+  {
+   "service": "Suitable_Poles",
+   "capabilities": "Query,Update,Editing",
+   "maxRecordCount": 2000,
+   "layers": [
+    3
+   ],
+   "tables": [],
+   "serviceDescription": "Pole_Suitability"
+  },
+  {
+   "service": "termination__TERA_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    81
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "tower__TWER_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    54
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "transformer__XFMR_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    29
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "un_meteredsupply__UMDS_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    82
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "zonesubstationsite__ZSSS_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    84
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "DAPR_ZS_Summer",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "layers": [],
+   "tables": [
+    0
+   ],
+   "serviceDescription": ""
+  },
+  {
+   "service": "DAPR_ZS_Summer_v2",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "layers": [],
+   "tables": [
+    0
+   ],
+   "serviceDescription": ""
+  },
+  {
+   "service": "Substations_Cap",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    0
+   ],
+   "tables": [],
+   "serviceDescription": "Sub cap"
+  },
+  {
+   "service": "Sub_Cables_R1",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    1
+   ],
+   "tables": [],
+   "serviceDescription": "NetCables"
+  },
+  {
+   "service": "VMA_Test",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    27
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "Distrib_Feeder_Fcasts",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "layers": [],
+   "tables": [
+    0
+   ],
+   "serviceDescription": ""
+  },
+  {
+   "service": "crossarm__XARM_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    0
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "span__SPAN_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    10
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "EE_Service_Areas",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    0
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "NIP_ZS_Forecast",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "layers": [],
+   "tables": [
+    0
+   ],
+   "serviceDescription": ""
+  },
+  {
+   "service": "DAPR_TX_Lines",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "layers": [],
+   "tables": [
+    0
+   ],
+   "serviceDescription": ""
+  },
+  {
+   "service": "DAPR_ZS_Winter_v2",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "layers": [],
+   "tables": [
+    0
+   ],
+   "serviceDescription": ""
+  },
+  {
+   "service": "OH_Span_TX_2",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    0
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "OH_Span_TX_3",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    0
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "streetlightcontroller__STLC_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    1
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "EE_VMA",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    28
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "cable__CBLE_",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    6
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "Sub_Constr",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "layers": [
+    0
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "Sub_Const_Tble",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "layers": [],
+   "tables": [
+    0
+   ],
+   "serviceDescription": ""
+  },
+  {
+   "service": "Join_Features_to_Sub_Constr_view",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    0
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "span_SPAN_",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "layers": [
+    0
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "cable_CBLE_",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "layers": [
+    0
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "EV_POIs",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "Suitable_Pole_Cluster___Second_Pass",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    2
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "First_Pass___Areas",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    3
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "Suitable_Pole_Cluster___First_Pass",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    4
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "Second_Pass___Areas",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    1
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "HostingCapacity_Service_Areas",
+   "capabilities": "Query,Extract",
+   "maxRecordCount": 2000,
+   "layers": [
+    10
+   ],
+   "tables": [],
+   "serviceDescription": "Hosting Capacity Service Areas dataset for Experience Builder"
+  },
+  {
+   "service": "HostingCapacity_Substation_GEN",
+   "capabilities": "Query,Extract",
+   "maxRecordCount": 2000,
+   "layers": [
+    1
+   ],
+   "tables": [],
+   "serviceDescription": "Hosting Capacity MVP \u2013 GEN dataset for Experience Builder"
+  },
+  {
+   "service": "HostingCapacity_Substation_LOAD",
+   "capabilities": "Query,Extract",
+   "maxRecordCount": 2000,
+   "layers": [
+    11
+   ],
+   "tables": [],
+   "serviceDescription": "Hosting Capacity MVP \u2013 LOAD dataset for Experience Builder"
+  },
+  {
+   "service": "Substation_LOAD_Capacity",
+   "capabilities": "Query,Extract",
+   "maxRecordCount": 2000,
+   "layers": [
+    28
+   ],
+   "tables": [],
+   "serviceDescription": "EE Substation"
+  },
+  {
+   "service": "Substation_GEN_Capacity",
+   "capabilities": "Query,Extract",
+   "maxRecordCount": 2000,
+   "layers": [
+    22
+   ],
+   "tables": [],
+   "serviceDescription": "EE Substation"
+  },
+  {
+   "service": "Poles_Op_tZone",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    7
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "hc_gen_hex_1km",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    40
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "hc_gen_hex_5km",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    39
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "hc_gen_hex_15km",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    38
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "hc_load_hex_1km",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    36
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "hc_load_hex_5km",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    35
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "hc_load_hex_15km",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "layers": [
+    37
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "pole_composite_PCOM_",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "layers": [
+    0
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "pole_metal_PMET_",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "layers": [
+    0
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "pole_timber_PTIM_",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "layers": [
+    0
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "pole_concrete_PCON_",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "layers": [
+    0
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  },
+  {
+   "service": "Suitable_Poles_2026",
+   "capabilities": "Query,Update,Editing",
+   "maxRecordCount": 2000,
+   "layers": [
+    13
+   ],
+   "tables": [],
+   "serviceDescription": ""
+  }
+ ],
+ "unreachable": []
+}

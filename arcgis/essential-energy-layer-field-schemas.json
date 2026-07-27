@@ -1,0 +1,2252 @@
+{
+ "harvested": "2026-07-27",
+ "source_pattern": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/<service>/FeatureServer/<layerId>?f=json",
+ "services": [
+  {
+   "service": "EE_Service_Areas",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/EE_Service_Areas/FeatureServer",
+   "serviceDescription": "",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 0,
+     "name": "EE_Service_Areas",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPolygon",
+     "description": "",
+     "fields": [
+      {
+       "name": "FID",
+       "type": "esriFieldTypeOID",
+       "alias": "FID"
+      },
+      {
+       "name": "area_id",
+       "type": "esriFieldTypeInteger",
+       "alias": "area_id"
+      },
+      {
+       "name": "area_name",
+       "type": "esriFieldTypeString",
+       "alias": "area_name"
+      },
+      {
+       "name": "code",
+       "type": "esriFieldTypeString",
+       "alias": "code"
+      },
+      {
+       "name": "coverage",
+       "type": "esriFieldTypeString",
+       "alias": "coverage"
+      },
+      {
+       "name": "date_next_",
+       "type": "esriFieldTypeString",
+       "alias": "date_next_"
+      },
+      {
+       "name": "flight_typ",
+       "type": "esriFieldTypeString",
+       "alias": "flight_typ"
+      },
+      {
+       "name": "flight_yea",
+       "type": "esriFieldTypeString",
+       "alias": "flight_yea"
+      },
+      {
+       "name": "id",
+       "type": "esriFieldTypeInteger",
+       "alias": "id"
+      },
+      {
+       "name": "landbase_u",
+       "type": "esriFieldTypeString",
+       "alias": "landbase_u"
+      },
+      {
+       "name": "name",
+       "type": "esriFieldTypeString",
+       "alias": "name"
+      },
+      {
+       "name": "coverage_s",
+       "type": "esriFieldTypeInteger",
+       "alias": "coverage_s"
+      },
+      {
+       "name": "Shape__Area",
+       "type": "esriFieldTypeDouble",
+       "alias": "Shape__Area"
+      },
+      {
+       "name": "Shape__Length",
+       "type": "esriFieldTypeDouble",
+       "alias": "Shape__Length"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "Substation",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/Substation/FeatureServer",
+   "serviceDescription": "EE Substation",
+   "capabilities": "Query,Extract",
+   "maxRecordCount": 2000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 0,
+     "name": "Substation",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint",
+     "description": "",
+     "fields": [
+      {
+       "name": "FID",
+       "type": "esriFieldTypeOID",
+       "alias": "FID"
+      },
+      {
+       "name": "DATE_E",
+       "type": "esriFieldTypeString",
+       "alias": "DATE_E"
+      },
+      {
+       "name": "ASSET_ID",
+       "type": "esriFieldTypeDouble",
+       "alias": "ASSET_ID"
+      },
+      {
+       "name": "ASSET_LABE",
+       "type": "esriFieldTypeString",
+       "alias": "ASSET_LABE"
+      },
+      {
+       "name": "CONSTRUCTI",
+       "type": "esriFieldTypeString",
+       "alias": "CONSTRUCTI"
+      },
+      {
+       "name": "SW_ID",
+       "type": "esriFieldTypeDouble",
+       "alias": "SW_ID"
+      },
+      {
+       "name": "KVA",
+       "type": "esriFieldTypeDouble",
+       "alias": "KVA"
+      },
+      {
+       "name": "PREMISE_CO",
+       "type": "esriFieldTypeInteger",
+       "alias": "PREMISE_CO"
+      },
+      {
+       "name": "PRIMARY_VO",
+       "type": "esriFieldTypeString",
+       "alias": "PRIMARY_VO"
+      },
+      {
+       "name": "SUBURB",
+       "type": "esriFieldTypeString",
+       "alias": "SUBURB"
+      },
+      {
+       "name": "VICINITY",
+       "type": "esriFieldTypeString",
+       "alias": "VICINITY"
+      },
+      {
+       "name": "WACS_ID",
+       "type": "esriFieldTypeDouble",
+       "alias": "WACS_ID"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "HostingCapacity_Substation_GEN",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/HostingCapacity_Substation_GEN/FeatureServer",
+   "serviceDescription": "Hosting Capacity MVP \u2013 GEN dataset for Experience Builder",
+   "capabilities": "Query,Extract",
+   "maxRecordCount": 2000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 1,
+     "name": "Substation_GEN",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint",
+     "description": "",
+     "fields": [
+      {
+       "name": "OBJECTID",
+       "type": "esriFieldTypeOID",
+       "alias": "OBJECTID"
+      },
+      {
+       "name": "DATE_E",
+       "type": "esriFieldTypeString",
+       "alias": "DATE_E"
+      },
+      {
+       "name": "ASSET_ID",
+       "type": "esriFieldTypeDouble",
+       "alias": "ASSET_ID"
+      },
+      {
+       "name": "ASSET_LABE",
+       "type": "esriFieldTypeString",
+       "alias": "ASSET_LABE"
+      },
+      {
+       "name": "CONSTRUCTI",
+       "type": "esriFieldTypeString",
+       "alias": "CONSTRUCTI"
+      },
+      {
+       "name": "SW_ID",
+       "type": "esriFieldTypeDouble",
+       "alias": "SW_ID"
+      },
+      {
+       "name": "PREMISE_CO",
+       "type": "esriFieldTypeInteger",
+       "alias": "PREMISE_CO"
+      },
+      {
+       "name": "PRIMARY_VO",
+       "type": "esriFieldTypeString",
+       "alias": "PRIMARY_VO"
+      },
+      {
+       "name": "SUBURB",
+       "type": "esriFieldTypeString",
+       "alias": "SUBURB"
+      },
+      {
+       "name": "VICINITY",
+       "type": "esriFieldTypeString",
+       "alias": "VICINITY"
+      },
+      {
+       "name": "WACS_ID",
+       "type": "esriFieldTypeDouble",
+       "alias": "WACS_ID"
+      },
+      {
+       "name": "feeder",
+       "type": "esriFieldTypeString",
+       "alias": "feeder"
+      },
+      {
+       "name": "substation",
+       "type": "esriFieldTypeString",
+       "alias": "substation"
+      },
+      {
+       "name": "feature_id",
+       "type": "esriFieldTypeString",
+       "alias": "feature_id"
+      },
+      {
+       "name": "capacity_label",
+       "type": "esriFieldTypeString",
+       "alias": "capacity_label"
+      },
+      {
+       "name": "min_constraint",
+       "type": "esriFieldTypeString",
+       "alias": "min_constraint"
+      },
+      {
+       "name": "max_constraint",
+       "type": "esriFieldTypeString",
+       "alias": "max_constraint"
+      },
+      {
+       "name": "kVA_rating",
+       "type": "esriFieldTypeInteger",
+       "alias": "kVA_rating"
+      },
+      {
+       "name": "min_spare_thermal_kW",
+       "type": "esriFieldTypeInteger",
+       "alias": "min_spare_thermal_kW"
+      },
+      {
+       "name": "max_spare_thermal_kW",
+       "type": "esriFieldTypeInteger",
+       "alias": "max_spare_thermal_kW"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "HostingCapacity_Substation_LOAD",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/HostingCapacity_Substation_LOAD/FeatureServer",
+   "serviceDescription": "Hosting Capacity MVP \u2013 LOAD dataset for Experience Builder",
+   "capabilities": "Query,Extract",
+   "maxRecordCount": 2000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 11,
+     "name": "Substation_LOAD",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint",
+     "description": "",
+     "fields": [
+      {
+       "name": "OBJECTID",
+       "type": "esriFieldTypeOID",
+       "alias": "OBJECTID"
+      },
+      {
+       "name": "kVA_rating",
+       "type": "esriFieldTypeInteger",
+       "alias": "kVA_rating"
+      },
+      {
+       "name": "DATE_E",
+       "type": "esriFieldTypeString",
+       "alias": "DATE_E"
+      },
+      {
+       "name": "ASSET_ID",
+       "type": "esriFieldTypeDouble",
+       "alias": "ASSET_ID"
+      },
+      {
+       "name": "ASSET_LABE",
+       "type": "esriFieldTypeString",
+       "alias": "ASSET_LABE"
+      },
+      {
+       "name": "CONSTRUCTI",
+       "type": "esriFieldTypeString",
+       "alias": "CONSTRUCTI"
+      },
+      {
+       "name": "SW_ID",
+       "type": "esriFieldTypeDouble",
+       "alias": "SW_ID"
+      },
+      {
+       "name": "PREMISE_CO",
+       "type": "esriFieldTypeInteger",
+       "alias": "PREMISE_CO"
+      },
+      {
+       "name": "PRIMARY_VO",
+       "type": "esriFieldTypeString",
+       "alias": "PRIMARY_VO"
+      },
+      {
+       "name": "SUBURB",
+       "type": "esriFieldTypeString",
+       "alias": "SUBURB"
+      },
+      {
+       "name": "VICINITY",
+       "type": "esriFieldTypeString",
+       "alias": "VICINITY"
+      },
+      {
+       "name": "WACS_ID",
+       "type": "esriFieldTypeDouble",
+       "alias": "WACS_ID"
+      },
+      {
+       "name": "feeder_1",
+       "type": "esriFieldTypeString",
+       "alias": "feeder"
+      },
+      {
+       "name": "substation_1",
+       "type": "esriFieldTypeString",
+       "alias": "substation"
+      },
+      {
+       "name": "feature_id_1",
+       "type": "esriFieldTypeString",
+       "alias": "feature_id"
+      },
+      {
+       "name": "capacity_label_1",
+       "type": "esriFieldTypeString",
+       "alias": "capacity_label"
+      },
+      {
+       "name": "min_constraint_1",
+       "type": "esriFieldTypeString",
+       "alias": "min_constraint"
+      },
+      {
+       "name": "max_constraint_1",
+       "type": "esriFieldTypeString",
+       "alias": "max_constraint"
+      },
+      {
+       "name": "min_spare_thermal_kW_1",
+       "type": "esriFieldTypeInteger",
+       "alias": "min_spare_thermal_kW"
+      },
+      {
+       "name": "max_spare_thermal_kW_1",
+       "type": "esriFieldTypeInteger",
+       "alias": "max_spare_thermal_kW"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "HostingCapacity_Service_Areas",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/HostingCapacity_Service_Areas/FeatureServer",
+   "serviceDescription": "Hosting Capacity Service Areas dataset for Experience Builder",
+   "capabilities": "Query,Extract",
+   "maxRecordCount": 2000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 10,
+     "name": "Service Areas",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPolygon",
+     "description": "",
+     "fields": [
+      {
+       "name": "FID",
+       "type": "esriFieldTypeOID",
+       "alias": "FID"
+      },
+      {
+       "name": "area_id",
+       "type": "esriFieldTypeString",
+       "alias": "area_id"
+      },
+      {
+       "name": "area_name",
+       "type": "esriFieldTypeString",
+       "alias": "area_name"
+      },
+      {
+       "name": "code",
+       "type": "esriFieldTypeString",
+       "alias": "code"
+      },
+      {
+       "name": "coverage",
+       "type": "esriFieldTypeString",
+       "alias": "coverage"
+      },
+      {
+       "name": "date_next_",
+       "type": "esriFieldTypeString",
+       "alias": "date_next_"
+      },
+      {
+       "name": "flight_typ",
+       "type": "esriFieldTypeString",
+       "alias": "flight_typ"
+      },
+      {
+       "name": "flight_yea",
+       "type": "esriFieldTypeString",
+       "alias": "flight_yea"
+      },
+      {
+       "name": "id",
+       "type": "esriFieldTypeString",
+       "alias": "id"
+      },
+      {
+       "name": "landbase_u",
+       "type": "esriFieldTypeString",
+       "alias": "landbase_u"
+      },
+      {
+       "name": "name",
+       "type": "esriFieldTypeString",
+       "alias": "name"
+      },
+      {
+       "name": "coverage_s",
+       "type": "esriFieldTypeString",
+       "alias": "coverage_s"
+      },
+      {
+       "name": "Shape__Area",
+       "type": "esriFieldTypeDouble",
+       "alias": "Shape__Area"
+      },
+      {
+       "name": "Shape__Length",
+       "type": "esriFieldTypeDouble",
+       "alias": "Shape__Length"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "DAPR_ZS_Summer_v2",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/DAPR_ZS_Summer_v2/FeatureServer",
+   "serviceDescription": "",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 0,
+     "name": "DAPR_ZS_Summer_v2",
+     "type": "Table",
+     "geometryType": null,
+     "description": "",
+     "fields": [
+      {
+       "name": "zonesub_id",
+       "type": "esriFieldTypeInteger",
+       "alias": "zonesub_id"
+      },
+      {
+       "name": "zs_asset_label",
+       "type": "esriFieldTypeString",
+       "alias": "zs_asset_label"
+      },
+      {
+       "name": "owner",
+       "type": "esriFieldTypeString",
+       "alias": "owner"
+      },
+      {
+       "name": "clean_sub_name",
+       "type": "esriFieldTypeString",
+       "alias": "clean_sub_name"
+      },
+      {
+       "name": "Region",
+       "type": "esriFieldTypeString",
+       "alias": "Region"
+      },
+      {
+       "name": "Substation",
+       "type": "esriFieldTypeString",
+       "alias": "Substation"
+      },
+      {
+       "name": "kV",
+       "type": "esriFieldTypeString",
+       "alias": "kV"
+      },
+      {
+       "name": "Transformer_Rating__MVA__TX_1",
+       "type": "esriFieldTypeString",
+       "alias": "Transformer Rating (MVA) TX.1"
+      },
+      {
+       "name": "Transformer_Rating__MVA__TX_2",
+       "type": "esriFieldTypeString",
+       "alias": "Transformer Rating (MVA) TX.2"
+      },
+      {
+       "name": "Transformer_Rating__MVA__TX_3",
+       "type": "esriFieldTypeString",
+       "alias": "Transformer Rating (MVA) TX.3"
+      },
+      {
+       "name": "Firm_Normal_Cyclic_Rating__MVA_",
+       "type": "esriFieldTypeDouble",
+       "alias": "Firm Normal Cyclic Rating (MVA)"
+      },
+      {
+       "name": "Forecast_PF",
+       "type": "esriFieldTypeDouble",
+       "alias": "Forecast PF"
+      },
+      {
+       "name": "Forecast__MVA__YR1",
+       "type": "esriFieldTypeDouble",
+       "alias": "Forecast (MVA) YR1"
+      },
+      {
+       "name": "Forecast__MVA__YR2",
+       "type": "esriFieldTypeDouble",
+       "alias": "Forecast (MVA) YR2"
+      },
+      {
+       "name": "Forecast__MVA__YR3",
+       "type": "esriFieldTypeDouble",
+       "alias": "Forecast (MVA) YR3"
+      },
+      {
+       "name": "Forecast__MVA__YR4",
+       "type": "esriFieldTypeDouble",
+       "alias": "Forecast (MVA) YR4"
+      },
+      {
+       "name": "Forecast__MVA__YR5",
+       "type": "esriFieldTypeDouble",
+       "alias": "Forecast (MVA) YR5"
+      },
+      {
+       "name": "Embedded_Generation__MW_",
+       "type": "esriFieldTypeDouble",
+       "alias": "Embedded Generation (MW)"
+      },
+      {
+       "name": "F95__Peak_Load_Exceeded___Hrs_",
+       "type": "esriFieldTypeDouble",
+       "alias": "95% Peak Load Exceeded  (Hrs)"
+      },
+      {
+       "name": "ObjectId",
+       "type": "esriFieldTypeOID",
+       "alias": "ObjectId"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "DAPR_ZS_Winter_v2",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/DAPR_ZS_Winter_v2/FeatureServer",
+   "serviceDescription": "",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 0,
+     "name": "DAPR_ZS_Winter_v2",
+     "type": "Table",
+     "geometryType": null,
+     "description": "",
+     "fields": [
+      {
+       "name": "zonesub_id",
+       "type": "esriFieldTypeInteger",
+       "alias": "zonesub_id"
+      },
+      {
+       "name": "zs_asset_label",
+       "type": "esriFieldTypeString",
+       "alias": "zs_asset_label"
+      },
+      {
+       "name": "owner",
+       "type": "esriFieldTypeString",
+       "alias": "owner"
+      },
+      {
+       "name": "Region",
+       "type": "esriFieldTypeString",
+       "alias": "Region"
+      },
+      {
+       "name": "Substation",
+       "type": "esriFieldTypeString",
+       "alias": "Substation"
+      },
+      {
+       "name": "kV",
+       "type": "esriFieldTypeString",
+       "alias": "kV"
+      },
+      {
+       "name": "Transformer_Rating__MVA__TX_1",
+       "type": "esriFieldTypeString",
+       "alias": "Transformer Rating (MVA) TX.1"
+      },
+      {
+       "name": "Transformer_Rating__MVA__TX_2",
+       "type": "esriFieldTypeString",
+       "alias": "Transformer Rating (MVA) TX.2"
+      },
+      {
+       "name": "Transformer_Rating__MVA__TX_3",
+       "type": "esriFieldTypeString",
+       "alias": "Transformer Rating (MVA) TX.3"
+      },
+      {
+       "name": "Firm_Normal_Cyclic_Rating__MVA_",
+       "type": "esriFieldTypeDouble",
+       "alias": "Firm Normal Cyclic Rating (MVA)"
+      },
+      {
+       "name": "Forecast_PF",
+       "type": "esriFieldTypeDouble",
+       "alias": "Forecast PF"
+      },
+      {
+       "name": "Forecast__MVA__YR1",
+       "type": "esriFieldTypeDouble",
+       "alias": "Forecast (MVA) YR1"
+      },
+      {
+       "name": "Forecast__MVA__YR2",
+       "type": "esriFieldTypeDouble",
+       "alias": "Forecast (MVA) YR2"
+      },
+      {
+       "name": "Forecast__MVA__YR3",
+       "type": "esriFieldTypeDouble",
+       "alias": "Forecast (MVA) YR3"
+      },
+      {
+       "name": "Forecast__MVA__YR4",
+       "type": "esriFieldTypeDouble",
+       "alias": "Forecast (MVA) YR4"
+      },
+      {
+       "name": "Forecast__MVA__YR5",
+       "type": "esriFieldTypeDouble",
+       "alias": "Forecast (MVA) YR5"
+      },
+      {
+       "name": "Embedded_Generation__MW_",
+       "type": "esriFieldTypeDouble",
+       "alias": "Embedded Generation (MW)"
+      },
+      {
+       "name": "F95__Peak_Load_Exceeded___Hrs_",
+       "type": "esriFieldTypeDouble",
+       "alias": "95% Peak Load Exceeded  (Hrs)"
+      },
+      {
+       "name": "ObjectId",
+       "type": "esriFieldTypeOID",
+       "alias": "ObjectId"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "DAPR_TX_Lines",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/DAPR_TX_Lines/FeatureServer",
+   "serviceDescription": "",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 0,
+     "name": "DAPR_TX_Lines",
+     "type": "Table",
+     "geometryType": null,
+     "description": "",
+     "fields": [
+      {
+       "name": "F2025",
+       "type": "esriFieldTypeDouble",
+       "alias": "2025"
+      },
+      {
+       "name": "F2026",
+       "type": "esriFieldTypeDouble",
+       "alias": "2026"
+      },
+      {
+       "name": "F2027",
+       "type": "esriFieldTypeDouble",
+       "alias": "2027"
+      },
+      {
+       "name": "F2028",
+       "type": "esriFieldTypeDouble",
+       "alias": "2028"
+      },
+      {
+       "name": "F2029",
+       "type": "esriFieldTypeDouble",
+       "alias": "2029"
+      },
+      {
+       "name": "SupplyArea",
+       "type": "esriFieldTypeString",
+       "alias": "SupplyArea"
+      },
+      {
+       "name": "Feeder",
+       "type": "esriFieldTypeString",
+       "alias": "Feeder"
+      },
+      {
+       "name": "FeederVoltagekV",
+       "type": "esriFieldTypeInteger",
+       "alias": "FeederVoltagekV"
+      },
+      {
+       "name": "FeederOrigin",
+       "type": "esriFieldTypeString",
+       "alias": "FeederOrigin"
+      },
+      {
+       "name": "FeederDest",
+       "type": "esriFieldTypeString",
+       "alias": "FeederDest"
+      },
+      {
+       "name": "season",
+       "type": "esriFieldTypeString",
+       "alias": "season"
+      },
+      {
+       "name": "MVA",
+       "type": "esriFieldTypeInteger",
+       "alias": "MVA"
+      },
+      {
+       "name": "ObjectId",
+       "type": "esriFieldTypeOID",
+       "alias": "ObjectId"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "NIP_ZS_Forecast",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/NIP_ZS_Forecast/FeatureServer",
+   "serviceDescription": "",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 0,
+     "name": "NIP_ZS_Forecast",
+     "type": "Table",
+     "geometryType": null,
+     "description": "",
+     "fields": [
+      {
+       "name": "F2025",
+       "type": "esriFieldTypeDouble",
+       "alias": "2025"
+      },
+      {
+       "name": "F2026",
+       "type": "esriFieldTypeDouble",
+       "alias": "2026"
+      },
+      {
+       "name": "F2027",
+       "type": "esriFieldTypeDouble",
+       "alias": "2027"
+      },
+      {
+       "name": "F2028",
+       "type": "esriFieldTypeDouble",
+       "alias": "2028"
+      },
+      {
+       "name": "F2029",
+       "type": "esriFieldTypeDouble",
+       "alias": "2029"
+      },
+      {
+       "name": "F2030",
+       "type": "esriFieldTypeDouble",
+       "alias": "2030"
+      },
+      {
+       "name": "site_id",
+       "type": "esriFieldTypeString",
+       "alias": "site_id"
+      },
+      {
+       "name": "id",
+       "type": "esriFieldTypeInteger",
+       "alias": "id"
+      },
+      {
+       "name": "season",
+       "type": "esriFieldTypeString",
+       "alias": "season"
+      },
+      {
+       "name": "F2025_to_2030",
+       "type": "esriFieldTypeString",
+       "alias": "2025 to 2030"
+      },
+      {
+       "name": "Movement",
+       "type": "esriFieldTypeString",
+       "alias": "Movement"
+      },
+      {
+       "name": "ObjectId",
+       "type": "esriFieldTypeOID",
+       "alias": "ObjectId"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "Distrib_Feeder_Fcasts",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/Distrib_Feeder_Fcasts/FeatureServer",
+   "serviceDescription": "",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 0,
+     "name": "Distrib_Feeder_Fcasts",
+     "type": "Table",
+     "geometryType": null,
+     "description": "",
+     "fields": [
+      {
+       "name": "site_id",
+       "type": "esriFieldTypeString",
+       "alias": "site_id"
+      },
+      {
+       "name": "year",
+       "type": "esriFieldTypeInteger",
+       "alias": "year"
+      },
+      {
+       "name": "season",
+       "type": "esriFieldTypeString",
+       "alias": "season"
+      },
+      {
+       "name": "unit",
+       "type": "esriFieldTypeString",
+       "alias": "unit"
+      },
+      {
+       "name": "statistic",
+       "type": "esriFieldTypeString",
+       "alias": "statistic"
+      },
+      {
+       "name": "amount",
+       "type": "esriFieldTypeDouble",
+       "alias": "amount"
+      },
+      {
+       "name": "id",
+       "type": "esriFieldTypeInteger",
+       "alias": "id"
+      },
+      {
+       "name": "zonesub_asset_label",
+       "type": "esriFieldTypeString",
+       "alias": "zonesub_asset_label"
+      },
+      {
+       "name": "feeder_asset_label",
+       "type": "esriFieldTypeString",
+       "alias": "feeder_asset_label"
+      },
+      {
+       "name": "operating_voltage",
+       "type": "esriFieldTypeString",
+       "alias": "operating_voltage"
+      },
+      {
+       "name": "ObjectId",
+       "type": "esriFieldTypeOID",
+       "alias": "ObjectId"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "EV_POIs",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/EV_POIs/FeatureServer",
+   "serviceDescription": "",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 0,
+     "name": "POIs",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint",
+     "description": "",
+     "fields": [
+      {
+       "name": "FID",
+       "type": "esriFieldTypeOID",
+       "alias": "FID"
+      },
+      {
+       "name": "feature_ty",
+       "type": "esriFieldTypeString",
+       "alias": "feature_ty"
+      },
+      {
+       "name": "station_na",
+       "type": "esriFieldTypeString",
+       "alias": "station_na"
+      }
+     ]
+    },
+    {
+     "id": 1,
+     "name": "Second Pass - Areas",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPolygon",
+     "description": "",
+     "fields": [
+      {
+       "name": "FID",
+       "type": "esriFieldTypeOID",
+       "alias": "FID"
+      },
+      {
+       "name": "CLUSTER_ID",
+       "type": "esriFieldTypeInteger",
+       "alias": "CLUSTER_ID"
+      },
+      {
+       "name": "NEAR_DIST_",
+       "type": "esriFieldTypeDouble",
+       "alias": "NEAR_DIST_"
+      },
+      {
+       "name": "NEAR_FID",
+       "type": "esriFieldTypeInteger",
+       "alias": "NEAR_FID"
+      },
+      {
+       "name": "Within_5km",
+       "type": "esriFieldTypeString",
+       "alias": "Within_5km"
+      },
+      {
+       "name": "Shape__Area",
+       "type": "esriFieldTypeDouble",
+       "alias": "Shape__Area"
+      },
+      {
+       "name": "Shape__Length",
+       "type": "esriFieldTypeDouble",
+       "alias": "Shape__Length"
+      }
+     ]
+    },
+    {
+     "id": 2,
+     "name": "Suitable Pole Cluster - Second Pass",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint",
+     "description": "",
+     "fields": [
+      {
+       "name": "FID",
+       "type": "esriFieldTypeOID",
+       "alias": "FID"
+      },
+      {
+       "name": "OBJECTID_2",
+       "type": "esriFieldTypeInteger",
+       "alias": "OBJECTID_2"
+      },
+      {
+       "name": "WACS_ID_A",
+       "type": "esriFieldTypeString",
+       "alias": "WACS_ID_A"
+      },
+      {
+       "name": "TYPE_CD_A",
+       "type": "esriFieldTypeString",
+       "alias": "TYPE_CD_A"
+      },
+      {
+       "name": "INT_LBL_A",
+       "type": "esriFieldTypeString",
+       "alias": "INT_LBL_A"
+      },
+      {
+       "name": "OWNER_A",
+       "type": "esriFieldTypeString",
+       "alias": "OWNER_A"
+      },
+      {
+       "name": "STATUS_A",
+       "type": "esriFieldTypeString",
+       "alias": "STATUS_A"
+      },
+      {
+       "name": "FEEDER_S",
+       "type": "esriFieldTypeString",
+       "alias": "FEEDER_S"
+      },
+      {
+       "name": "H_VOLT_S",
+       "type": "esriFieldTypeString",
+       "alias": "H_VOLT_S"
+      },
+      {
+       "name": "P_MAT_A",
+       "type": "esriFieldTypeString",
+       "alias": "P_MAT_A"
+      },
+      {
+       "name": "P_TYPE_S",
+       "type": "esriFieldTypeString",
+       "alias": "P_TYPE_S"
+      },
+      {
+       "name": "P_FUNCT_S",
+       "type": "esriFieldTypeString",
+       "alias": "P_FUNCT_S"
+      },
+      {
+       "name": "WACS_ID_S",
+       "type": "esriFieldTypeString",
+       "alias": "WACS_ID_S"
+      },
+      {
+       "name": "INT_LBL_S",
+       "type": "esriFieldTypeString",
+       "alias": "INT_LBL_S"
+      },
+      {
+       "name": "STATUS_S",
+       "type": "esriFieldTypeString",
+       "alias": "STATUS_S"
+      },
+      {
+       "name": "CLUSTER_ID",
+       "type": "esriFieldTypeInteger",
+       "alias": "CLUSTER_ID"
+      },
+      {
+       "name": "COLOR_ID",
+       "type": "esriFieldTypeInteger",
+       "alias": "COLOR_ID"
+      },
+      {
+       "name": "NEAR_DIST1",
+       "type": "esriFieldTypeDouble",
+       "alias": "NEAR_DIST1"
+      },
+      {
+       "name": "Within_5km",
+       "type": "esriFieldTypeString",
+       "alias": "Within_5km"
+      }
+     ]
+    },
+    {
+     "id": 3,
+     "name": "First Pass - Areas",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPolygon",
+     "description": "",
+     "fields": [
+      {
+       "name": "FID",
+       "type": "esriFieldTypeOID",
+       "alias": "FID"
+      },
+      {
+       "name": "CLUSTER_ID",
+       "type": "esriFieldTypeInteger",
+       "alias": "CLUSTER_ID"
+      },
+      {
+       "name": "NEAR_DIST_",
+       "type": "esriFieldTypeDouble",
+       "alias": "NEAR_DIST_"
+      },
+      {
+       "name": "NEAR_FID",
+       "type": "esriFieldTypeInteger",
+       "alias": "NEAR_FID"
+      },
+      {
+       "name": "Within_15k",
+       "type": "esriFieldTypeString",
+       "alias": "Within_15k"
+      },
+      {
+       "name": "Shape__Area",
+       "type": "esriFieldTypeDouble",
+       "alias": "Shape__Area"
+      },
+      {
+       "name": "Shape__Length",
+       "type": "esriFieldTypeDouble",
+       "alias": "Shape__Length"
+      }
+     ]
+    },
+    {
+     "id": 4,
+     "name": "Suitable Pole Cluster - First Pass",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint",
+     "description": "",
+     "fields": [
+      {
+       "name": "FID",
+       "type": "esriFieldTypeOID",
+       "alias": "FID"
+      },
+      {
+       "name": "WACS_ID_A",
+       "type": "esriFieldTypeString",
+       "alias": "WACS_ID_A"
+      },
+      {
+       "name": "TYPE_CD_A",
+       "type": "esriFieldTypeString",
+       "alias": "TYPE_CD_A"
+      },
+      {
+       "name": "INT_LBL_A",
+       "type": "esriFieldTypeString",
+       "alias": "INT_LBL_A"
+      },
+      {
+       "name": "OWNER_A",
+       "type": "esriFieldTypeString",
+       "alias": "OWNER_A"
+      },
+      {
+       "name": "STATUS_A",
+       "type": "esriFieldTypeString",
+       "alias": "STATUS_A"
+      },
+      {
+       "name": "FEEDER_S",
+       "type": "esriFieldTypeString",
+       "alias": "FEEDER_S"
+      },
+      {
+       "name": "H_VOLT_S",
+       "type": "esriFieldTypeString",
+       "alias": "H_VOLT_S"
+      },
+      {
+       "name": "P_MAT_A",
+       "type": "esriFieldTypeString",
+       "alias": "P_MAT_A"
+      },
+      {
+       "name": "P_TYPE_S",
+       "type": "esriFieldTypeString",
+       "alias": "P_TYPE_S"
+      },
+      {
+       "name": "P_FUNCT_S",
+       "type": "esriFieldTypeString",
+       "alias": "P_FUNCT_S"
+      },
+      {
+       "name": "WACS_ID_S",
+       "type": "esriFieldTypeString",
+       "alias": "WACS_ID_S"
+      },
+      {
+       "name": "INT_LBL_S",
+       "type": "esriFieldTypeString",
+       "alias": "INT_LBL_S"
+      },
+      {
+       "name": "STATUS_S",
+       "type": "esriFieldTypeString",
+       "alias": "STATUS_S"
+      },
+      {
+       "name": "CLUSTER_ID",
+       "type": "esriFieldTypeInteger",
+       "alias": "CLUSTER_ID"
+      },
+      {
+       "name": "COLOR_ID",
+       "type": "esriFieldTypeInteger",
+       "alias": "COLOR_ID"
+      },
+      {
+       "name": "NEAR_DIST1",
+       "type": "esriFieldTypeDouble",
+       "alias": "NEAR_DIST1"
+      },
+      {
+       "name": "Within_15k",
+       "type": "esriFieldTypeString",
+       "alias": "Within_15k"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "span__SPAN_",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/span__SPAN_/FeatureServer",
+   "serviceDescription": "",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 10,
+     "name": "span_(SPAN)",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPolyline",
+     "description": "",
+     "fields": [
+      {
+       "name": "FID",
+       "type": "esriFieldTypeOID",
+       "alias": "FID"
+      },
+      {
+       "name": "DATE_E",
+       "type": "esriFieldTypeString",
+       "alias": "DATE_E"
+      },
+      {
+       "name": "Find_ID",
+       "type": "esriFieldTypeString",
+       "alias": "Find_ID"
+      },
+      {
+       "name": "Find_Label",
+       "type": "esriFieldTypeString",
+       "alias": "Find_Label"
+      },
+      {
+       "name": "WACS_ID_A",
+       "type": "esriFieldTypeString",
+       "alias": "WACS_ID_A"
+      },
+      {
+       "name": "TYPE_CD_A",
+       "type": "esriFieldTypeString",
+       "alias": "TYPE_CD_A"
+      },
+      {
+       "name": "TYPE_A",
+       "type": "esriFieldTypeString",
+       "alias": "TYPE_A"
+      },
+      {
+       "name": "W_LABEL_A",
+       "type": "esriFieldTypeString",
+       "alias": "W_LABEL_A"
+      },
+      {
+       "name": "SERV_STA_A",
+       "type": "esriFieldTypeString",
+       "alias": "SERV_STA_A"
+      },
+      {
+       "name": "WACS_ID_S",
+       "type": "esriFieldTypeString",
+       "alias": "WACS_ID_S"
+      },
+      {
+       "name": "TYPE_CD_S",
+       "type": "esriFieldTypeString",
+       "alias": "TYPE_CD_S"
+      },
+      {
+       "name": "SW_ID",
+       "type": "esriFieldTypeString",
+       "alias": "SW_ID"
+      },
+      {
+       "name": "SW_LABEL",
+       "type": "esriFieldTypeString",
+       "alias": "SW_LABEL"
+      },
+      {
+       "name": "FMT_NUM",
+       "type": "esriFieldTypeString",
+       "alias": "FMT_NUM"
+      },
+      {
+       "name": "CONST_TYPE",
+       "type": "esriFieldTypeString",
+       "alias": "CONST_TYPE"
+      },
+      {
+       "name": "STRANDING",
+       "type": "esriFieldTypeString",
+       "alias": "STRANDING"
+      },
+      {
+       "name": "COMMON_NAM",
+       "type": "esriFieldTypeString",
+       "alias": "COMMON_NAM"
+      },
+      {
+       "name": "MATERIAL",
+       "type": "esriFieldTypeString",
+       "alias": "MATERIAL"
+      },
+      {
+       "name": "REGION",
+       "type": "esriFieldTypeString",
+       "alias": "REGION"
+      },
+      {
+       "name": "NUM_CABLES",
+       "type": "esriFieldTypeString",
+       "alias": "NUM_CABLES"
+      },
+      {
+       "name": "VOLTAGE",
+       "type": "esriFieldTypeString",
+       "alias": "VOLTAGE"
+      },
+      {
+       "name": "OWNER",
+       "type": "esriFieldTypeString",
+       "alias": "OWNER"
+      },
+      {
+       "name": "PHASES",
+       "type": "esriFieldTypeString",
+       "alias": "PHASES"
+      },
+      {
+       "name": "DEPOT",
+       "type": "esriFieldTypeString",
+       "alias": "DEPOT"
+      },
+      {
+       "name": "FEEDER",
+       "type": "esriFieldTypeString",
+       "alias": "FEEDER"
+      },
+      {
+       "name": "FUNCTION_",
+       "type": "esriFieldTypeString",
+       "alias": "FUNCTION_"
+      },
+      {
+       "name": "Shape__Length",
+       "type": "esriFieldTypeDouble",
+       "alias": "Shape__Length"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "transformer__XFMR_",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/transformer__XFMR_/FeatureServer",
+   "serviceDescription": "",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 29,
+     "name": "transformer_(XFMR)",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint",
+     "description": "",
+     "fields": [
+      {
+       "name": "FID",
+       "type": "esriFieldTypeOID",
+       "alias": "FID"
+      },
+      {
+       "name": "DATE_E",
+       "type": "esriFieldTypeString",
+       "alias": "DATE_E"
+      },
+      {
+       "name": "Find_ID",
+       "type": "esriFieldTypeString",
+       "alias": "Find_ID"
+      },
+      {
+       "name": "Find_Label",
+       "type": "esriFieldTypeString",
+       "alias": "Find_Label"
+      },
+      {
+       "name": "WACS_ID_A",
+       "type": "esriFieldTypeString",
+       "alias": "WACS_ID_A"
+      },
+      {
+       "name": "TYPE_CD_A",
+       "type": "esriFieldTypeString",
+       "alias": "TYPE_CD_A"
+      },
+      {
+       "name": "TYPE_A",
+       "type": "esriFieldTypeString",
+       "alias": "TYPE_A"
+      },
+      {
+       "name": "W_LABEL_A",
+       "type": "esriFieldTypeString",
+       "alias": "W_LABEL_A"
+      },
+      {
+       "name": "SERV_STA_A",
+       "type": "esriFieldTypeString",
+       "alias": "SERV_STA_A"
+      },
+      {
+       "name": "WACS_ID_S",
+       "type": "esriFieldTypeString",
+       "alias": "WACS_ID_S"
+      },
+      {
+       "name": "TYPE_CD_S",
+       "type": "esriFieldTypeString",
+       "alias": "TYPE_CD_S"
+      },
+      {
+       "name": "SW_ID",
+       "type": "esriFieldTypeString",
+       "alias": "SW_ID"
+      },
+      {
+       "name": "SW_LABEL",
+       "type": "esriFieldTypeString",
+       "alias": "SW_LABEL"
+      },
+      {
+       "name": "FMT_NUM",
+       "type": "esriFieldTypeString",
+       "alias": "FMT_NUM"
+      },
+      {
+       "name": "CONSTRUCTI",
+       "type": "esriFieldTypeString",
+       "alias": "CONSTRUCTI"
+      },
+      {
+       "name": "KVA",
+       "type": "esriFieldTypeString",
+       "alias": "KVA"
+      },
+      {
+       "name": "PREMISE_CO",
+       "type": "esriFieldTypeString",
+       "alias": "PREMISE_CO"
+      },
+      {
+       "name": "PRIMARY_VO",
+       "type": "esriFieldTypeString",
+       "alias": "PRIMARY_VO"
+      },
+      {
+       "name": "SUBURB",
+       "type": "esriFieldTypeString",
+       "alias": "SUBURB"
+      },
+      {
+       "name": "VICINITY",
+       "type": "esriFieldTypeString",
+       "alias": "VICINITY"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "servicepoint__SRPT_",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/servicepoint__SRPT_/FeatureServer",
+   "serviceDescription": "",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 28,
+     "name": "servicepoint_(SRPT)",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint",
+     "description": "",
+     "fields": [
+      {
+       "name": "FID",
+       "type": "esriFieldTypeOID",
+       "alias": "FID"
+      },
+      {
+       "name": "DATE_E",
+       "type": "esriFieldTypeString",
+       "alias": "DATE_E"
+      },
+      {
+       "name": "Find_ID",
+       "type": "esriFieldTypeString",
+       "alias": "Find_ID"
+      },
+      {
+       "name": "Find_Label",
+       "type": "esriFieldTypeString",
+       "alias": "Find_Label"
+      },
+      {
+       "name": "WACS_ID_A",
+       "type": "esriFieldTypeString",
+       "alias": "WACS_ID_A"
+      },
+      {
+       "name": "TYPE_CD_A",
+       "type": "esriFieldTypeString",
+       "alias": "TYPE_CD_A"
+      },
+      {
+       "name": "TYPE_A",
+       "type": "esriFieldTypeString",
+       "alias": "TYPE_A"
+      },
+      {
+       "name": "W_LABEL_A",
+       "type": "esriFieldTypeString",
+       "alias": "W_LABEL_A"
+      },
+      {
+       "name": "SERV_STA_A",
+       "type": "esriFieldTypeString",
+       "alias": "SERV_STA_A"
+      },
+      {
+       "name": "WACS_ID_S",
+       "type": "esriFieldTypeString",
+       "alias": "WACS_ID_S"
+      },
+      {
+       "name": "TYPE_CD_S",
+       "type": "esriFieldTypeString",
+       "alias": "TYPE_CD_S"
+      },
+      {
+       "name": "SW_ID",
+       "type": "esriFieldTypeString",
+       "alias": "SW_ID"
+      },
+      {
+       "name": "SW_LABEL",
+       "type": "esriFieldTypeString",
+       "alias": "SW_LABEL"
+      },
+      {
+       "name": "FMT_NUM",
+       "type": "esriFieldTypeString",
+       "alias": "FMT_NUM"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "streetlight__STLT_",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/streetlight__STLT_/FeatureServer",
+   "serviceDescription": "",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 40,
+     "name": "streetlight_(STLT)",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint",
+     "description": "",
+     "fields": [
+      {
+       "name": "FID",
+       "type": "esriFieldTypeOID",
+       "alias": "FID"
+      },
+      {
+       "name": "DATE_E",
+       "type": "esriFieldTypeString",
+       "alias": "DATE_E"
+      },
+      {
+       "name": "Find_ID",
+       "type": "esriFieldTypeString",
+       "alias": "Find_ID"
+      },
+      {
+       "name": "Find_Label",
+       "type": "esriFieldTypeString",
+       "alias": "Find_Label"
+      },
+      {
+       "name": "WACS_ID_A",
+       "type": "esriFieldTypeString",
+       "alias": "WACS_ID_A"
+      },
+      {
+       "name": "TYPE_CD_A",
+       "type": "esriFieldTypeString",
+       "alias": "TYPE_CD_A"
+      },
+      {
+       "name": "TYPE_A",
+       "type": "esriFieldTypeString",
+       "alias": "TYPE_A"
+      },
+      {
+       "name": "W_LABEL_A",
+       "type": "esriFieldTypeString",
+       "alias": "W_LABEL_A"
+      },
+      {
+       "name": "SERV_STA_A",
+       "type": "esriFieldTypeString",
+       "alias": "SERV_STA_A"
+      },
+      {
+       "name": "WACS_ID_S",
+       "type": "esriFieldTypeString",
+       "alias": "WACS_ID_S"
+      },
+      {
+       "name": "TYPE_CD_S",
+       "type": "esriFieldTypeString",
+       "alias": "TYPE_CD_S"
+      },
+      {
+       "name": "SW_ID",
+       "type": "esriFieldTypeString",
+       "alias": "SW_ID"
+      },
+      {
+       "name": "SW_LABEL",
+       "type": "esriFieldTypeString",
+       "alias": "SW_LABEL"
+      },
+      {
+       "name": "FMT_NUM",
+       "type": "esriFieldTypeString",
+       "alias": "FMT_NUM"
+      },
+      {
+       "name": "CONTROL_ME",
+       "type": "esriFieldTypeString",
+       "alias": "CONTROL_ME"
+      },
+      {
+       "name": "LANTERN_TY",
+       "type": "esriFieldTypeString",
+       "alias": "LANTERN_TY"
+      },
+      {
+       "name": "LIGHTING_C",
+       "type": "esriFieldTypeString",
+       "alias": "LIGHTING_C"
+      },
+      {
+       "name": "NUM_LANTER",
+       "type": "esriFieldTypeString",
+       "alias": "NUM_LANTER"
+      },
+      {
+       "name": "OPERATING_",
+       "type": "esriFieldTypeString",
+       "alias": "OPERATING_"
+      },
+      {
+       "name": "PL_CAT_TAB",
+       "type": "esriFieldTypeString",
+       "alias": "PL_CAT_TAB"
+      },
+      {
+       "name": "SUBURB",
+       "type": "esriFieldTypeString",
+       "alias": "SUBURB"
+      },
+      {
+       "name": "SUPPORT_TY",
+       "type": "esriFieldTypeString",
+       "alias": "SUPPORT_TY"
+      },
+      {
+       "name": "VICINITY",
+       "type": "esriFieldTypeString",
+       "alias": "VICINITY"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "zonesubstationsite__ZSSS_",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/zonesubstationsite__ZSSS_/FeatureServer",
+   "serviceDescription": "",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 84,
+     "name": "zonesubstationsite_(ZSSS)",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint",
+     "description": "",
+     "fields": [
+      {
+       "name": "FID",
+       "type": "esriFieldTypeOID",
+       "alias": "FID"
+      },
+      {
+       "name": "DATE_E",
+       "type": "esriFieldTypeString",
+       "alias": "DATE_E"
+      },
+      {
+       "name": "Find_ID",
+       "type": "esriFieldTypeString",
+       "alias": "Find_ID"
+      },
+      {
+       "name": "Find_Label",
+       "type": "esriFieldTypeString",
+       "alias": "Find_Label"
+      },
+      {
+       "name": "WACS_ID_S",
+       "type": "esriFieldTypeString",
+       "alias": "WACS_ID_S"
+      },
+      {
+       "name": "SW_ID",
+       "type": "esriFieldTypeString",
+       "alias": "SW_ID"
+      },
+      {
+       "name": "SW_LABEL",
+       "type": "esriFieldTypeString",
+       "alias": "SW_LABEL"
+      },
+      {
+       "name": "FMT_NUM",
+       "type": "esriFieldTypeString",
+       "alias": "FMT_NUM"
+      },
+      {
+       "name": "TNI_ID",
+       "type": "esriFieldTypeString",
+       "alias": "TNI_ID"
+      },
+      {
+       "name": "OWNER",
+       "type": "esriFieldTypeString",
+       "alias": "OWNER"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "hc_gen_hex_5km",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/hc_gen_hex_5km/FeatureServer",
+   "serviceDescription": "",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 39,
+     "name": "hc_gen_hex_5km",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPolygon",
+     "description": "",
+     "fields": [
+      {
+       "name": "OBJECTID",
+       "type": "esriFieldTypeOID",
+       "alias": "OBJECTID"
+      },
+      {
+       "name": "GRID_ID",
+       "type": "esriFieldTypeString",
+       "alias": "GRID_ID"
+      },
+      {
+       "name": "sum_Firm_Spare_Capacity_kW",
+       "type": "esriFieldTypeDouble",
+       "alias": "Sum Firm_Spare_Capacity_kW"
+      },
+      {
+       "name": "mean_Firm_Spare_Capacity_kW",
+       "type": "esriFieldTypeDouble",
+       "alias": "Mean Firm_Spare_Capacity_kW"
+      },
+      {
+       "name": "Point_Count",
+       "type": "esriFieldTypeInteger",
+       "alias": "Count of Points"
+      },
+      {
+       "name": "Shape__Area",
+       "type": "esriFieldTypeDouble",
+       "alias": "Shape__Area"
+      },
+      {
+       "name": "Shape__Length",
+       "type": "esriFieldTypeDouble",
+       "alias": "Shape__Length"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "hc_load_hex_5km",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/hc_load_hex_5km/FeatureServer",
+   "serviceDescription": "",
+   "capabilities": "Query",
+   "maxRecordCount": 2000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 35,
+     "name": "hc_load_hex_5km",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPolygon",
+     "description": "",
+     "fields": [
+      {
+       "name": "OBJECTID",
+       "type": "esriFieldTypeOID",
+       "alias": "OBJECTID"
+      },
+      {
+       "name": "GRID_ID",
+       "type": "esriFieldTypeString",
+       "alias": "GRID_ID"
+      },
+      {
+       "name": "sum_Firm_Spare_Capacity_kW",
+       "type": "esriFieldTypeDouble",
+       "alias": "Sum Firm_Spare_Capacity_kW"
+      },
+      {
+       "name": "mean_Firm_Spare_Capacity_kW",
+       "type": "esriFieldTypeDouble",
+       "alias": "Mean Firm_Spare_Capacity_kW"
+      },
+      {
+       "name": "Point_Count",
+       "type": "esriFieldTypeInteger",
+       "alias": "Count of Points"
+      },
+      {
+       "name": "Shape__Area",
+       "type": "esriFieldTypeDouble",
+       "alias": "Shape__Area"
+      },
+      {
+       "name": "Shape__Length",
+       "type": "esriFieldTypeDouble",
+       "alias": "Shape__Length"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "Suitable_Poles_2026",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/Suitable_Poles_2026/FeatureServer",
+   "serviceDescription": "",
+   "capabilities": "Query,Update,Editing",
+   "maxRecordCount": 2000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 13,
+     "name": "Pole_SL_R2_Project",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint",
+     "description": "",
+     "fields": [
+      {
+       "name": "OBJECTID",
+       "type": "esriFieldTypeOID",
+       "alias": "OBJECTID"
+      },
+      {
+       "name": "WACS_ID_A",
+       "type": "esriFieldTypeInteger",
+       "alias": "WACS_ID_A"
+      },
+      {
+       "name": "INT_ID_A",
+       "type": "esriFieldTypeDouble",
+       "alias": "INT_ID_A"
+      },
+      {
+       "name": "WACS_ID_S",
+       "type": "esriFieldTypeInteger",
+       "alias": "WACS_ID_S"
+      },
+      {
+       "name": "TYPE_CD_S",
+       "type": "esriFieldTypeString",
+       "alias": "TYPE_CD_S"
+      },
+      {
+       "name": "INT_LBL_S",
+       "type": "esriFieldTypeString",
+       "alias": "INT_LBL_S"
+      },
+      {
+       "name": "LGA_CODE",
+       "type": "esriFieldTypeDouble",
+       "alias": "LGA_CODE"
+      },
+      {
+       "name": "LGA_NAME",
+       "type": "esriFieldTypeString",
+       "alias": "LGA_NAME"
+      },
+      {
+       "name": "Project",
+       "type": "esriFieldTypeString",
+       "alias": "Project"
+      },
+      {
+       "name": "Suitable",
+       "type": "esriFieldTypeString",
+       "alias": "Suitable"
+      },
+      {
+       "name": "Reviewed_b",
+       "type": "esriFieldTypeString",
+       "alias": "Reviewed_b"
+      },
+      {
+       "name": "Notes",
+       "type": "esriFieldTypeString",
+       "alias": "Notes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "service": "pole_timber_PTIM_",
+   "url": "https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/pole_timber_PTIM_/FeatureServer",
+   "serviceDescription": "",
+   "capabilities": "Query",
+   "maxRecordCount": 1000,
+   "supportedQueryFormats": "JSON",
+   "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel",
+   "layers": [
+    {
+     "id": 0,
+     "name": "extract1_",
+     "type": "Feature Layer",
+     "geometryType": "esriGeometryPoint",
+     "description": "",
+     "fields": [
+      {
+       "name": "FID",
+       "type": "esriFieldTypeOID",
+       "alias": "FID"
+      },
+      {
+       "name": "DATE_E",
+       "type": "esriFieldTypeString",
+       "alias": "DATE_E"
+      },
+      {
+       "name": "Find_ID",
+       "type": "esriFieldTypeString",
+       "alias": "Find_ID"
+      },
+      {
+       "name": "Find_Label",
+       "type": "esriFieldTypeString",
+       "alias": "Find_Label"
+      },
+      {
+       "name": "WACS_ID_A",
+       "type": "esriFieldTypeDouble",
+       "alias": "WACS_ID_A"
+      },
+      {
+       "name": "TYPE_CD_A",
+       "type": "esriFieldTypeString",
+       "alias": "TYPE_CD_A"
+      },
+      {
+       "name": "TYPE_A",
+       "type": "esriFieldTypeString",
+       "alias": "TYPE_A"
+      },
+      {
+       "name": "W_LABEL_A",
+       "type": "esriFieldTypeString",
+       "alias": "W_LABEL_A"
+      },
+      {
+       "name": "SERV_STA_A",
+       "type": "esriFieldTypeString",
+       "alias": "SERV_STA_A"
+      },
+      {
+       "name": "WACS_ID_S",
+       "type": "esriFieldTypeDouble",
+       "alias": "WACS_ID_S"
+      },
+      {
+       "name": "TYPE_CD_S",
+       "type": "esriFieldTypeString",
+       "alias": "TYPE_CD_S"
+      },
+      {
+       "name": "SW_ID",
+       "type": "esriFieldTypeDouble",
+       "alias": "SW_ID"
+      },
+      {
+       "name": "SW_LABEL",
+       "type": "esriFieldTypeString",
+       "alias": "SW_LABEL"
+      },
+      {
+       "name": "FMT_NUM",
+       "type": "esriFieldTypeString",
+       "alias": "FMT_NUM"
+      },
+      {
+       "name": "BUSHFIRE_R",
+       "type": "esriFieldTypeString",
+       "alias": "BUSHFIRE_R"
+      },
+      {
+       "name": "DEPOT",
+       "type": "esriFieldTypeString",
+       "alias": "DEPOT"
+      },
+      {
+       "name": "FDR_AREA",
+       "type": "esriFieldTypeString",
+       "alias": "FDR_AREA"
+      },
+      {
+       "name": "FEEDER",
+       "type": "esriFieldTypeString",
+       "alias": "FEEDER"
+      },
+      {
+       "name": "FUNCTION_",
+       "type": "esriFieldTypeString",
+       "alias": "FUNCTION_"
+      },
+      {
+       "name": "GPS_SOURCE",
+       "type": "esriFieldTypeString",
+       "alias": "GPS_SOURCE"
+      },
+      {
+       "name": "HIGHEST_V",
+       "type": "esriFieldTypeString",
+       "alias": "HIGHEST_V"
+      },
+      {
+       "name": "LANDUSE",
+       "type": "esriFieldTypeString",
+       "alias": "LANDUSE"
+      },
+      {
+       "name": "LENGTH",
+       "type": "esriFieldTypeString",
+       "alias": "LENGTH"
+      },
+      {
+       "name": "LOCALITY",
+       "type": "esriFieldTypeString",
+       "alias": "LOCALITY"
+      },
+      {
+       "name": "MAINT_AREA",
+       "type": "esriFieldTypeString",
+       "alias": "MAINT_AREA"
+      },
+      {
+       "name": "M_LANDUSE",
+       "type": "esriFieldTypeString",
+       "alias": "M_LANDUSE"
+      },
+      {
+       "name": "MATERIAL",
+       "type": "esriFieldTypeString",
+       "alias": "MATERIAL"
+      },
+      {
+       "name": "OWNER",
+       "type": "esriFieldTypeString",
+       "alias": "OWNER"
+      },
+      {
+       "name": "REGION",
+       "type": "esriFieldTypeString",
+       "alias": "REGION"
+      },
+      {
+       "name": "RESPONSIB",
+       "type": "esriFieldTypeString",
+       "alias": "RESPONSIB"
+      },
+      {
+       "name": "STRENGTH",
+       "type": "esriFieldTypeString",
+       "alias": "STRENGTH"
+      },
+      {
+       "name": "VEG_AREA",
+       "type": "esriFieldTypeString",
+       "alias": "VEG_AREA"
+      },
+      {
+       "name": "VICINITY",
+       "type": "esriFieldTypeString",
+       "alias": "VICINITY"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

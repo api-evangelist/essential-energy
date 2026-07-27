@@ -1,0 +1,168 @@
+generated: '2026-07-27'
+method: probed
+source: >-
+  Live probes and harvested descriptors, 2026-07-27. Each entry records what was actually
+  tested; a false is a verified absence, not an assumption.
+summary: >-
+  Essential Energy's public API conforms to exactly one thing: the Esri ArcGIS REST API,
+  a vendor de facto standard. It implements no open geospatial standard interface, no
+  energy-sector data standard, and no API-hygiene RFC. GeoJSON output is the single
+  standards-based affordance available.
+standards:
+- id: arcgis-rest-api
+  name: Esri ArcGIS REST API
+  kind: vendor-de-facto
+  conforms: true
+  version: '12'
+  evidence: >-
+    currentVersion 12 / fullVersion 12.0.0 reported by
+    https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/info?f=json (HTTP 200);
+    100 FeatureServers enumerated from the services directory; /query verified live.
+- id: geojson-rfc7946
+  name: GeoJSON (RFC 7946)
+  kind: format
+  conforms: true
+  evidence: >-
+    f=geojson returned a valid FeatureCollection —
+    examples/essential-energy-service-areas-geojson-response.json, HTTP 200, 2026-07-27.
+  caveat: >-
+    GeoJSON is an output encoding, not an interface contract; the query interface itself
+    remains Esri-proprietary.
+- id: ogc-api-features
+  name: OGC API - Features (OGC 17-069r4)
+  kind: open-standard
+  conforms: false
+  evidence: >-
+    /OGCFeatureServer, /OGCFeatureServer/api and /OGCFeatureServer/collections all return
+    the Esri error envelope {"error":{"code":400,"message":"Invalid URL"}} on
+    EE_Service_Areas and on HostingCapacity_Substation_GEN. OGC API - Features is not
+    enabled on these services.
+  consequence: >-
+    Because OGC API - Features is what would have shipped a standards-based OpenAPI
+    document for these layers, its absence is the direct reason this provider has no
+    OpenAPI at all.
+- id: wfs
+  name: OGC Web Feature Service
+  kind: open-standard
+  conforms: false
+  evidence: No WFS endpoint is advertised in the services directory or in any service descriptor.
+- id: openapi
+  name: OpenAPI
+  kind: description-format
+  conforms: false
+  evidence: >-
+    /openapi.json, /swagger.json, /api-docs and /api probed against
+    dapr.essentialenergy.com.au (all 404) and against the ArcGIS service host via the OGC
+    path (Esri error envelope). No OpenAPI or Swagger document exists on any Essential
+    Energy or hosting host.
+- id: asyncapi
+  name: AsyncAPI
+  kind: description-format
+  conforms: false
+  evidence: >-
+    No event, streaming or webhook surface is published to consumers. FeatureServer
+    metadata reports supportsWebHooks true, but ArcGIS feature-service webhooks are an
+    authenticated administrative capability of the hosting platform, not a consumer event
+    surface Essential Energy offers.
+- id: graphql
+  name: GraphQL
+  kind: query-language
+  conforms: false
+  evidence: No /graphql surface exists on any Essential Energy or organisation host.
+- id: rfc9457-problem-details
+  name: RFC 9457 Problem Details for HTTP APIs
+  kind: rfc
+  conforms: false
+  evidence: >-
+    Errors are returned as an Esri JSON envelope with HTTP 200. No application/problem+json
+    media type was produced by any of six error probes. See
+    errors/essential-energy-problem-types.yml.
+- id: rfc8594-sunset-header
+  name: RFC 8594 Sunset HTTP Header
+  kind: rfc
+  conforms: false
+  evidence: No Sunset or Deprecation header observed; no deprecation policy published.
+- id: rfc9116-security-txt
+  name: RFC 9116 security.txt
+  kind: rfc
+  conforms: false
+  evidence: >-
+    /.well-known/security.txt returns 403 (Cloudflare) on www.essentialenergy.com.au and
+    404 on dapr. and engage.essentialenergy.com.au. A vulnerability disclosure policy IS
+    published as an HTML page, but not as a machine-readable security.txt — see
+    security/essential-energy-vulnerability-disclosure.yml.
+- id: oauth2
+  name: OAuth 2.0
+  kind: rfc
+  conforms: false
+  evidence: >-
+    No authorization or token endpoint published by Essential Energy; no
+    /.well-known/oauth-authorization-server document on any host. The public surface is
+    anonymous.
+- id: openid-connect
+  name: OpenID Connect
+  kind: open-standard
+  conforms: false
+  evidence: /.well-known/openid-configuration returns no document on any Essential Energy host.
+- id: cdr-energy
+  name: Consumer Data Right - Energy (Consumer Data Standards, Data Standards Body)
+  kind: regulatory
+  conforms: false
+  applicable: false
+  evidence: >-
+    GET https://api.cdr.gov.au/cdr-register/v1/energy/data-holders/brands/summary (HTTP
+    200, 2026-07-27) returned 84 energy data-holder brands; a case-insensitive search for
+    "essential" matched none. Essential Energy is a distribution network service provider
+    and is not a designated CDR data holder. See review.yml mandate.
+- id: green-button-espi
+  name: Green Button / NAESB ESPI
+  kind: energy-data-standard
+  conforms: false
+  applicable: false
+  evidence: North American standard; no reference on any Essential Energy surface.
+- id: iec-cim-61968-61970
+  name: IEC CIM 61968 / 61970
+  kind: energy-data-standard
+  conforms: false
+  evidence: >-
+    Field names across the 24 harvested layer schemas are truncated shapefile-style
+    internal names (ASSET_LABE, WACS_ID_A, TYPE_CD_S, PRIMARY_VO), not CIM class or
+    attribute names. No CIM mapping is published.
+- id: ieee-2030-5
+  name: IEEE 2030.5 (Smart Energy Profile)
+  kind: energy-data-standard
+  conforms: false
+  evidence: No DER control or telemetry interface is published; the DER surface is static hosting-capacity data.
+- id: openadr
+  name: OpenADR
+  kind: energy-data-standard
+  conforms: false
+  evidence: No demand-response interface published.
+- id: ocpi-ocpp
+  name: OCPI / OCPP
+  kind: energy-data-standard
+  conforms: false
+  evidence: >-
+    The EV_POIs service publishes charging-site suitability analysis (points, candidate
+    areas, suitable pole clusters) — siting study output, not charge-point operation data.
+    No OCPI or OCPP interface exists.
+- id: dcat-ckan
+  name: DCAT / CKAN open-data cataloguing
+  kind: open-standard
+  conforms: partial
+  evidence: >-
+    Essential Energy is registered as a publisher on Data.NSW (CKAN) with package_count 1
+    ("StormTracker"), whose only resource is a website link rather than a data resource.
+    The 100 FeatureServers are NOT catalogued in any DCAT/CKAN endpoint.
+certifications_published: none
+certifications_note: >-
+  No SOC 2, ISO 27001, PCI DSS, HIPAA, FedRAMP or CSA STAR attestation is published for
+  the data surface, and no trust centre exists. Essential Energy's corporate governance
+  section publishes policies (including a vulnerability disclosure policy) but no security
+  certification register that could be verified. No Compliance pointer is therefore
+  emitted in apis.yml.
+cross_references:
+  errors: errors/essential-energy-problem-types.yml
+  authentication: authentication/essential-energy-authentication.yml
+  lifecycle: lifecycle/essential-energy-lifecycle.yml
+  security: security/essential-energy-vulnerability-disclosure.yml

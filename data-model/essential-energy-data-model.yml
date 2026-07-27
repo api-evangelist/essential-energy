@@ -1,0 +1,325 @@
+generated: '2026-07-27'
+method: derived
+source: >-
+  arcgis/essential-energy-layer-field-schemas.json — 24 layer/table schemas harvested live
+  from 20 of the 100 published FeatureServers on 2026-07-27 — plus
+  arcgis/essential-energy-arcgis-services-catalog.json.
+summary: >-
+  Essential Energy publishes no object reference and no schema document. This entity graph
+  is derived from the field lists the live services return. Relationships are inferred from
+  shared identifier columns that appear across layers (WACS_ID, ASSET_ID, SW_ID, FEEDER,
+  zonesub_id, site_id, CLUSTER_ID); each is recorded with the confidence it deserves,
+  because the services expose no declared relationship classes.
+render: null
+render_note: No subway/ or ERD visual exists in this repo yet.
+identifier_conventions:
+- id: WACS_ID
+  variants:
+  - WACS_ID
+  - WACS_ID_A
+  - WACS_ID_S
+  meaning: >-
+    The dominant asset identifier across the physical-network layers. The _A and _S
+    suffixes pair an asset with its site/support across the asset layers (span,
+    transformer, servicepoint, streetlight, pole, zonesubstationsite), which is what makes
+    joins between those layers possible.
+  confidence: high
+  evidence: Present on span__SPAN_/10, transformer__XFMR_/29, servicepoint__SRPT_/28, streetlight__STLT_/40, zonesubstationsite__ZSSS_/84, pole_timber_PTIM_/0, EV_POIs/2, EV_POIs/4, Suitable_Poles_2026/13.
+- id: ASSET_ID
+  meaning: Numeric asset key on the substation and hosting-capacity layers.
+  confidence: high
+  evidence: Substation/0, HostingCapacity_Substation_GEN/1, HostingCapacity_Substation_LOAD/11.
+- id: SW_ID
+  variants:
+  - SW_ID
+  - SW_LABEL
+  meaning: Switching / network-connectivity identifier carried alongside the asset key.
+  confidence: medium
+  evidence: Substation/0, HostingCapacity_*, span__SPAN_/10, transformer__XFMR_/29, zonesubstationsite__ZSSS_/84.
+- id: FEEDER
+  variants:
+  - FEEDER
+  - feeder
+  - feeder_1
+  - Feeder
+  - FEEDER_S
+  - feeder_asset_label
+  meaning: Distribution feeder name — the join key between physical assets and the planning forecasts.
+  confidence: high
+  evidence: span__SPAN_/10, pole_timber_PTIM_/0, HostingCapacity_Substation_GEN/1, HostingCapacity_Substation_LOAD/11, DAPR_TX_Lines/0, Distrib_Feeder_Fcasts/0, EV_POIs/2, EV_POIs/4.
+- id: zonesub_id / zs_asset_label
+  meaning: Zone substation key in the DAPR planning tables.
+  confidence: high
+  evidence: DAPR_ZS_Summer_v2/0, DAPR_ZS_Winter_v2/0, Distrib_Feeder_Fcasts/0 (zonesub_asset_label).
+- id: site_id
+  meaning: Site key shared by NIP_ZS_Forecast and Distrib_Feeder_Fcasts.
+  confidence: medium
+  evidence: NIP_ZS_Forecast/0, Distrib_Feeder_Fcasts/0.
+- id: CLUSTER_ID
+  meaning: EV siting cluster key linking suitable pole clusters to their candidate areas.
+  confidence: high
+  evidence: EV_POIs layers 1, 2, 3 and 4.
+- id: area_id / code / name
+  meaning: Service-area key shared by the network and hosting-capacity service-area layers.
+  confidence: high
+  evidence: EE_Service_Areas/0 and HostingCapacity_Service_Areas/10 carry identical field sets.
+entities:
+- name: Substation
+  surface: Substation/FeatureServer/0
+  geometry: point
+  record_count: 144569
+  record_count_source: returnCountOnly query, examples/essential-energy-substation-count-response.json
+  key_fields: [ASSET_ID, ASSET_LABE, SW_ID, WACS_ID]
+  attributes: [KVA, PRIMARY_VO, CONSTRUCTI, PREMISE_CO, SUBURB, VICINITY, DATE_E]
+  description: Distribution substations, the physical anchor of the hosting-capacity datasets.
+- name: SubstationHostingCapacityGEN
+  surface: HostingCapacity_Substation_GEN/FeatureServer/1
+  geometry: point
+  key_fields: [ASSET_ID, feature_id, feeder, substation]
+  attributes: [capacity_label, min_constraint, max_constraint, kVA_rating, min_spare_thermal_kW, max_spare_thermal_kW]
+  description: >-
+    Per-substation generation hosting capacity — how much DER export the network can
+    absorb. Service description "Hosting Capacity MVP – GEN dataset for Experience Builder".
+- name: SubstationHostingCapacityLOAD
+  surface: HostingCapacity_Substation_LOAD/FeatureServer/11
+  geometry: point
+  key_fields: [ASSET_ID, feature_id_1, feeder_1, substation_1]
+  attributes: [capacity_label_1, min_constraint_1, max_constraint_1, kVA_rating, min_spare_thermal_kW_1, max_spare_thermal_kW_1]
+  description: >-
+    Per-substation load hosting capacity. Field names are the GEN field names with a _1
+    suffix — an artefact of a spatial join, not a different vocabulary.
+- name: HostingCapacityHexbin
+  surface: hc_gen_hex_1km|5km|15km, hc_load_hex_1km|5km|15km
+  geometry: polygon
+  key_fields: [GRID_ID]
+  attributes: [sum_Firm_Spare_Capacity_kW, mean_Firm_Spare_Capacity_kW, Point_Count]
+  description: >-
+    Hexbin aggregations of the substation hosting capacity at 1km, 5km and 15km. Point_Count
+    is the number of underlying substations rolled into the cell.
+- name: ServiceArea
+  surface: EE_Service_Areas/FeatureServer/0 and HostingCapacity_Service_Areas/FeatureServer/10
+  geometry: polygon
+  key_fields: [area_id, code, id, name]
+  attributes: [area_name, coverage, coverage_s, landbase_u, flight_typ, flight_yea, date_next_]
+  description: >-
+    Network service-area boundaries. The flight_* and date_next_ fields carry the aerial
+    capture programme, i.e. how current the landbase behind each area is.
+- name: ZoneSubstationSite
+  surface: zonesubstationsite__ZSSS_/FeatureServer/84
+  geometry: point
+  key_fields: [WACS_ID_S, SW_ID, SW_LABEL, Find_ID]
+  attributes: [TNI_ID, OWNER, FMT_NUM, DATE_E]
+  description: >-
+    Zone substation sites. TNI_ID is the Transmission Node Identifier, the key that ties a
+    site to the National Electricity Market.
+- name: ZoneSubstationForecast
+  surface: DAPR_ZS_Summer_v2/FeatureServer/0 and DAPR_ZS_Winter_v2/FeatureServer/0
+  geometry: none (table)
+  key_fields: [zonesub_id, zs_asset_label, Substation]
+  attributes:
+  - kV
+  - Transformer_Rating__MVA__TX_1..TX_3
+  - Firm_Normal_Cyclic_Rating__MVA_
+  - Forecast_PF
+  - Forecast__MVA__YR1..YR5
+  - Embedded_Generation__MW_
+  - F95__Peak_Load_Exceeded___Hrs_
+  - Region
+  - owner
+  description: >-
+    Regulated Distribution Annual Planning Report zone substation ratings and five-year
+    demand forecasts, summer and winter. The Embedded_Generation__MW_ column is the DER
+    penetration figure per zone substation.
+- name: TransmissionLineForecast
+  surface: DAPR_TX_Lines/FeatureServer/0
+  geometry: none (table)
+  key_fields: [Feeder, SupplyArea]
+  attributes: [FeederVoltagekV, FeederOrigin, FeederDest, season, MVA, F2025..F2029]
+  description: Transmission/subtransmission line loading forecasts by season and year.
+- name: DistributionFeederForecast
+  surface: Distrib_Feeder_Fcasts/FeatureServer/0
+  geometry: none (table)
+  key_fields: [site_id, id, zonesub_asset_label, feeder_asset_label]
+  attributes: [year, season, unit, statistic, amount, operating_voltage]
+  description: >-
+    Long-format feeder forecast — one row per site/feeder/year/season/statistic. This is
+    the tidy-data table of the set and the one an analyst should start from.
+- name: ZoneSubstationNIPForecast
+  surface: NIP_ZS_Forecast/FeatureServer/0
+  geometry: none (table)
+  key_fields: [site_id, id]
+  attributes: [season, F2025..F2030, F2025_to_2030, Movement]
+  description: Network Investment Plan zone substation forecast with an explicit six-year movement column.
+- name: Span
+  surface: span__SPAN_/FeatureServer/10
+  geometry: polyline
+  key_fields: [WACS_ID_A, WACS_ID_S, Find_ID, SW_ID]
+  attributes: [VOLTAGE, PHASES, MATERIAL, STRANDING, NUM_CABLES, CONST_TYPE, FEEDER, REGION, DEPOT, OWNER, FUNCTION_]
+  description: Overhead conductor spans between supports.
+- name: Pole
+  surface: pole_timber_PTIM_, pole_concrete_PCON_, pole_metal_PMET_, pole_composite_PCOM_
+  geometry: point
+  key_fields: [WACS_ID_A, WACS_ID_S, Find_ID]
+  attributes: [MATERIAL, LENGTH, STRENGTH, HIGHEST_V, FEEDER, FDR_AREA, BUSHFIRE_R, LANDUSE, M_LANDUSE, VEG_AREA, MAINT_AREA, DEPOT, REGION, LOCALITY, GPS_SOURCE, RESPONSIB, OWNER, FUNCTION_]
+  description: >-
+    Support structures, split into one service per material. BUSHFIRE_R and VEG_AREA make
+    this the bushfire-risk layer as much as the asset layer.
+- name: Transformer
+  surface: transformer__XFMR_/FeatureServer/29
+  geometry: point
+  key_fields: [WACS_ID_A, WACS_ID_S, SW_ID]
+  attributes: [KVA, PRIMARY_VO, CONSTRUCTI, PREMISE_CO, SUBURB, VICINITY]
+  description: Distribution transformers, with the premise count they serve.
+- name: ServicePoint
+  surface: servicepoint__SRPT_/FeatureServer/28
+  geometry: point
+  key_fields: [WACS_ID_A, WACS_ID_S, SW_ID, Find_ID]
+  attributes: [TYPE_A, TYPE_CD_A, SERV_STA_A, W_LABEL_A, FMT_NUM]
+  description: >-
+    The connection point between the network and a premises. Note what is absent — there is
+    no customer, NMI, account or consumption field anywhere on this layer. This is the exact
+    boundary where the open surface stops.
+- name: Streetlight
+  surface: streetlight__STLT_/FeatureServer/40
+  geometry: point
+  key_fields: [WACS_ID_A, WACS_ID_S, SW_ID]
+  attributes: [LANTERN_TY, LIGHTING_C, NUM_LANTER, CONTROL_ME, OPERATING_, SUPPORT_TY, PL_CAT_TAB, SUBURB, VICINITY]
+  description: Public lighting assets and their control method — the layer councils use.
+- name: EVChargingPOI
+  surface: EV_POIs/FeatureServer/0
+  geometry: point
+  key_fields: [FID]
+  attributes: [feature_ty, station_na]
+  description: Points of interest used as demand anchors in the EV charging siting study.
+- name: EVSuitablePoleCluster
+  surface: EV_POIs/FeatureServer/2 (second pass), EV_POIs/FeatureServer/4 (first pass)
+  geometry: point
+  key_fields: [CLUSTER_ID, WACS_ID_A, WACS_ID_S]
+  attributes: [FEEDER_S, H_VOLT_S, P_MAT_A, P_TYPE_S, P_FUNCT_S, STATUS_A, STATUS_S, OWNER_A, NEAR_DIST1, Within_5km, Within_15k, COLOR_ID]
+  description: Poles judged suitable to host kerbside EV charging, clustered.
+- name: EVCandidateArea
+  surface: EV_POIs/FeatureServer/1 (second pass), EV_POIs/FeatureServer/3 (first pass)
+  geometry: polygon
+  key_fields: [CLUSTER_ID, NEAR_FID]
+  attributes: [NEAR_DIST_, Within_5km, Within_15k]
+  description: Catchment polygons around the suitable pole clusters.
+relationships:
+- from: SubstationHostingCapacityGEN
+  to: Substation
+  type: belongs_to
+  via: ASSET_ID
+  confidence: high
+  evidence: >-
+    HostingCapacity_Substation_GEN/1 carries the full Substation/0 attribute set
+    (ASSET_ID, ASSET_LABE, CONSTRUCTI, SW_ID, PREMISE_CO, PRIMARY_VO, SUBURB, VICINITY,
+    WACS_ID, DATE_E) plus the capacity columns.
+- from: SubstationHostingCapacityLOAD
+  to: Substation
+  type: belongs_to
+  via: ASSET_ID
+  confidence: high
+- from: SubstationHostingCapacityGEN
+  to: ZoneSubstationForecast
+  type: belongs_to
+  via: feeder / substation -> Substation / zs_asset_label
+  confidence: medium
+  note: >-
+    Name-based join. The hosting-capacity layers carry free-text feeder and substation
+    names, and the DAPR tables carry zs_asset_label and Substation; matching requires string
+    normalisation, and no declared key links them.
+- from: HostingCapacityHexbin
+  to: SubstationHostingCapacityGEN
+  type: has_many
+  via: spatial containment (GRID_ID aggregates Point_Count substations)
+  confidence: high
+- from: ServiceArea
+  to: HostingCapacityHexbin
+  type: has_many
+  via: spatial containment
+  confidence: medium
+- from: DistributionFeederForecast
+  to: ZoneSubstationForecast
+  type: belongs_to
+  via: zonesub_asset_label -> zs_asset_label
+  confidence: high
+- from: DistributionFeederForecast
+  to: ZoneSubstationNIPForecast
+  type: belongs_to
+  via: site_id
+  confidence: medium
+- from: TransmissionLineForecast
+  to: ZoneSubstationForecast
+  type: references
+  via: FeederOrigin / FeederDest -> Substation names
+  confidence: low
+  note: Origin and destination are free-text names; no key is published.
+- from: Span
+  to: Pole
+  type: belongs_to
+  via: WACS_ID_S (support) / WACS_ID_A (asset)
+  confidence: medium
+  note: >-
+    The _A/_S pairing is consistent across every physical asset layer and is clearly an
+    asset-to-support link, but Essential Energy publishes no relationship class to confirm
+    the direction.
+- from: Transformer
+  to: Pole
+  type: belongs_to
+  via: WACS_ID_S
+  confidence: medium
+- from: Streetlight
+  to: Pole
+  type: belongs_to
+  via: WACS_ID_S
+  confidence: medium
+- from: ServicePoint
+  to: Span
+  type: belongs_to
+  via: WACS_ID_S
+  confidence: low
+- from: Span
+  to: DistributionFeederForecast
+  type: references
+  via: FEEDER -> feeder_asset_label
+  confidence: medium
+- from: Pole
+  to: DistributionFeederForecast
+  type: references
+  via: FEEDER -> feeder_asset_label
+  confidence: medium
+- from: EVSuitablePoleCluster
+  to: Pole
+  type: belongs_to
+  via: WACS_ID_A
+  confidence: high
+- from: EVSuitablePoleCluster
+  to: EVCandidateArea
+  type: belongs_to
+  via: CLUSTER_ID
+  confidence: high
+- from: EVCandidateArea
+  to: EVChargingPOI
+  type: references
+  via: NEAR_FID
+  confidence: medium
+absent_entities:
+- name: Customer / Account / NMI
+  note: >-
+    No customer, account, National Metering Identifier, consumption, billing or consent
+    entity exists anywhere on the public surface. PREMISE_CO on the substation and
+    transformer layers is a premise COUNT, not a premise identifier — the aggregate is
+    published, the individual never is. This absence is the structural expression of
+    Essential Energy sitting outside the Consumer Data Right designation.
+- name: Outage
+  note: >-
+    Live outage state is rendered on the corporate site's outage map but is not published
+    as a FeatureServer in this organisation and has no queryable surface.
+caveats:
+- >-
+  20 of 100 published FeatureServers were sampled. The remaining 80 are additional asset
+  classes (switchgear, fuses, reclosers, pillars, pits, towers, cross-arms, earths, joints,
+  enclosures and similar) that follow the same WACS_ID / Find_ID / _A / _S pattern.
+- >-
+  Every relationship here is inferred from shared column names. The services declare no
+  relationship classes, no foreign keys and no relatedRecords, so a consumer must join
+  client-side and validate the join themselves.

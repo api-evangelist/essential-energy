@@ -1,0 +1,96 @@
+generated: '2026-07-27'
+method: derived
+source: >-
+  Derived from arcgis/essential-energy-arcgis-services-catalog.json,
+  arcgis/essential-energy-arcgis-rest-info.json and
+  arcgis/essential-energy-layer-field-schemas.json, plus live probes on 2026-07-27.
+summary: >-
+  Essential Energy publishes no API lifecycle policy of any kind — no versioning
+  statement, no deprecation policy, no sunset commitment, no SLA and no status page. The
+  only lifecycle signals a consumer can act on are the platform version reported in every
+  response and the version suffixes the publisher puts on service names.
+versioning:
+  platform:
+    scheme: reported-in-response
+    field: currentVersion
+    current: '12'
+    full_version: 12.0.0
+    source: arcgis/essential-energy-arcgis-rest-info.json
+    note: This is the Esri ArcGIS REST API version, not an Essential Energy API version.
+  service:
+    scheme: name-suffix
+    documented: false
+    observed_pairs:
+    - current_candidate: DAPR_ZS_Summer_v2
+      superseded_candidate: DAPR_ZS_Summer
+    - current_candidate: OH_Span_TX_3
+      superseded_candidate: OH_Span_TX_2, OH_Span_TX
+    - current_candidate: Suitable_Poles_2026
+      superseded_candidate: Suitable_Poles
+    - current_candidate: Sub_Cables_R1
+      superseded_candidate: Sub_Cables
+    - current_candidate: span__SPAN_
+      superseded_candidate: span_SPAN_
+      note: Double- and single-underscore variants of span and cable are both live.
+    risk: >-
+      Both members of every pair remain published and queryable. Nothing in the API
+      distinguishes current from superseded — no deprecated flag, no note in
+      serviceDescription, no Sunset or Deprecation header. Selecting the wrong one is a
+      silent correctness failure, and the naming convention is the only clue.
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  evidence: >-
+    No Sunset or Deprecation response header was observed on any verified call. No
+    deprecation policy page exists on any Essential Energy host; developer., docs. and
+    api..essentialenergy.com.au do not resolve.
+  deprecated_operations: []
+  deprecated_operations_note: >-
+    Not derivable — there is no OpenAPI to carry a deprecated flag, and ArcGIS service
+    descriptors have no equivalent field.
+sla:
+  url: null
+  uptime_target: null
+  note: >-
+    No availability commitment is published for the data surface. Essential Energy's
+    regulated service standards under the Australian Energy Regulator cover electricity
+    supply reliability, not API availability.
+status_page:
+  essential_energy: null
+  essential_energy_note: >-
+    Essential Energy publishes no status page for its data services.
+    status.essentialenergy.com.au does not resolve (verified 2026-07-27). The consumer
+    outage map on the corporate site reports electricity network outages, not API health,
+    and is not a service-status page.
+  hosting_platform: https://status.arcgis.com/
+  hosting_platform_note: >-
+    The surface runs entirely on Esri ArcGIS Online, whose status page is Esri's. It is
+    recorded here because it is the only meaningful availability signal for consumers,
+    but it is NOT an Essential Energy property and is deliberately not wired as a
+    StatusPage pointer in apis.yml.
+change_communication:
+  changelog: false
+  release_notes: false
+  rss: false
+  note: >-
+    No changelog, release-notes feed or announcement channel covers the data surface.
+    ArcGIS item metadata carries per-item modified timestamps (see
+    arcgis/essential-energy-arcgis-public-items.json), which is the only change signal
+    available and requires polling to use.
+regulatory_publishing_cycle:
+  obligation: Distribution Annual Planning Report (DAPR)
+  regulator: Australian Energy Regulator
+  cadence: annual
+  surfaces:
+  - https://dapr.essentialenergy.com.au/
+  - DAPR_ZS_Summer_v2, DAPR_ZS_Winter_v2, DAPR_TX_Lines, NIP_ZS_Forecast, Distrib_Feeder_Fcasts
+  note: >-
+    The planning tables carry an explicit five-year forecast horizon in their field names
+    (Forecast (MVA) YR1..YR5; F2025..F2030). That annual regulatory cycle, not an API
+    release process, is what actually versions this data.
+cross_references:
+  conventions: conventions/essential-energy-conventions.yml
+  conformance: conformance/essential-energy-conformance.yml

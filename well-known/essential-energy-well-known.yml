@@ -1,0 +1,84 @@
+generated: '2026-07-27'
+method: probed
+source: Live probes, 2026-07-27.
+summary: >-
+  Essential Energy publishes NO /.well-known/ discovery surface. Every documented path was
+  probed on every host in apis.yml and on the API host; not one returned a document. This
+  file is the recorded negative — no raw files accompany it because nothing was served.
+result: none
+hosts:
+- host: https://www.essentialenergy.com.au
+  note: >-
+    Behind Cloudflare bot management. Every path returns 403 to automated clients,
+    including paths that would otherwise 404, so a 403 here is "unknown", not "absent".
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /llms.txt
+    status: 403
+- host: https://dapr.essentialenergy.com.au
+  note: DAPR Rosetta Data Portal web application. Serves real 404s.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://engage.essentialenergy.com.au
+  note: Essential Engagement site. Serves real 404s.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://services-ap1.arcgis.com
+  note: >-
+    Esri-operated API host for the FeatureServers. Not an Essential Energy property; a
+    well-known document here would be Esri's, not Essential Energy's.
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+- host: https://essentialenergy.maps.arcgis.com
+  note: Essential Energy's ArcGIS Online organisation portal.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+non_well_known_discovery:
+  note: >-
+    The organisation does expose real machine-readable discovery documents — they just do
+    not live under /.well-known/. These are the ones that work.
+  documents:
+  - url: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/info?f=json
+    status: 200
+    role: platform version + auth advertisement
+    file: arcgis/essential-energy-arcgis-rest-info.json
+  - url: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services?f=json
+    status: 200
+    role: service catalogue (100 FeatureServers)
+    file: arcgis/essential-energy-arcgis-services-catalog.json
+  - url: https://essentialenergy.maps.arcgis.com/sharing/rest/portals/self?f=json
+    status: 200
+    role: organisation descriptor
+    file: arcgis/essential-energy-arcgis-portal-self.json
+  - url: https://www.arcgis.com/sharing/rest/search?q=orgid:3o0vFs4fJRsuYuBO&f=json&num=100
+    status: 200
+    role: public item catalogue (184 items)
+    file: arcgis/essential-energy-arcgis-public-items.json
+gap: >-
+  A /.well-known/api-catalog (RFC 9727) pointing at the ArcGIS services directory, and an
+  RFC 9116 security.txt pointing at the existing vulnerability disclosure policy, would
+  each cost one static file and would make a real, already-published surface discoverable
+  to machines.

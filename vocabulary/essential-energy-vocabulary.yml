@@ -1,0 +1,920 @@
+generated: '2026-07-27'
+method: derived
+source: arcgis/essential-energy-layer-field-schemas.json (harvested live from https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/<service>/FeatureServer/<layerId>?f=json,
+  2026-07-27)
+name: Essential Energy network data dictionary
+description: Field-level data dictionary derived from the live ArcGIS REST layer schemas Essential Energy
+  publishes anonymously. Every term below is a field name returned by a real FeatureServer layer descriptor;
+  esri_type is the field type verbatim from the service, aliases are the human labels the service ships,
+  and used_in lists the <service>/<layerId> surfaces the field appears on. Essential Energy publishes
+  no written glossary, so this is the only machine-readable vocabulary for the surface; nothing here is
+  invented.
+scope:
+  services_sampled: 20
+  layers_sampled: 24
+  distinct_terms: 160
+  note: 20 of the 100 published FeatureServers were sampled - the ones wired into apis.yml plus representative
+    asset classes.
+terms:
+- term: FID
+  esri_type: esriFieldTypeOID
+  used_in:
+  - EE_Service_Areas/0
+  - Substation/0
+  - HostingCapacity_Service_Areas/10
+  - EV_POIs/0
+  - EV_POIs/1
+  - EV_POIs/2
+  - EV_POIs/3
+  - EV_POIs/4
+  - span__SPAN_/10
+  - transformer__XFMR_/29
+  - servicepoint__SRPT_/28
+  - streetlight__STLT_/40
+  - zonesubstationsite__ZSSS_/84
+  - pole_timber_PTIM_/0
+- term: area_id
+  esri_type: esriFieldTypeInteger
+  used_in:
+  - EE_Service_Areas/0
+  - HostingCapacity_Service_Areas/10
+- term: area_name
+  esri_type: esriFieldTypeString
+  used_in:
+  - EE_Service_Areas/0
+  - HostingCapacity_Service_Areas/10
+- term: code
+  esri_type: esriFieldTypeString
+  used_in:
+  - EE_Service_Areas/0
+  - HostingCapacity_Service_Areas/10
+- term: coverage
+  esri_type: esriFieldTypeString
+  used_in:
+  - EE_Service_Areas/0
+  - HostingCapacity_Service_Areas/10
+- term: date_next_
+  esri_type: esriFieldTypeString
+  used_in:
+  - EE_Service_Areas/0
+  - HostingCapacity_Service_Areas/10
+- term: flight_typ
+  esri_type: esriFieldTypeString
+  used_in:
+  - EE_Service_Areas/0
+  - HostingCapacity_Service_Areas/10
+- term: flight_yea
+  esri_type: esriFieldTypeString
+  used_in:
+  - EE_Service_Areas/0
+  - HostingCapacity_Service_Areas/10
+- term: id
+  esri_type: esriFieldTypeInteger
+  used_in:
+  - EE_Service_Areas/0
+  - HostingCapacity_Service_Areas/10
+  - NIP_ZS_Forecast/0
+  - Distrib_Feeder_Fcasts/0
+- term: landbase_u
+  esri_type: esriFieldTypeString
+  used_in:
+  - EE_Service_Areas/0
+  - HostingCapacity_Service_Areas/10
+- term: name
+  esri_type: esriFieldTypeString
+  used_in:
+  - EE_Service_Areas/0
+  - HostingCapacity_Service_Areas/10
+- term: coverage_s
+  esri_type: esriFieldTypeInteger
+  used_in:
+  - EE_Service_Areas/0
+  - HostingCapacity_Service_Areas/10
+- term: Shape__Area
+  esri_type: esriFieldTypeDouble
+  used_in:
+  - EE_Service_Areas/0
+  - HostingCapacity_Service_Areas/10
+  - EV_POIs/1
+  - EV_POIs/3
+  - hc_gen_hex_5km/39
+  - hc_load_hex_5km/35
+- term: Shape__Length
+  esri_type: esriFieldTypeDouble
+  used_in:
+  - EE_Service_Areas/0
+  - HostingCapacity_Service_Areas/10
+  - EV_POIs/1
+  - EV_POIs/3
+  - span__SPAN_/10
+  - hc_gen_hex_5km/39
+  - hc_load_hex_5km/35
+- term: DATE_E
+  esri_type: esriFieldTypeString
+  used_in:
+  - Substation/0
+  - HostingCapacity_Substation_GEN/1
+  - HostingCapacity_Substation_LOAD/11
+  - span__SPAN_/10
+  - transformer__XFMR_/29
+  - servicepoint__SRPT_/28
+  - streetlight__STLT_/40
+  - zonesubstationsite__ZSSS_/84
+  - pole_timber_PTIM_/0
+- term: ASSET_ID
+  esri_type: esriFieldTypeDouble
+  used_in:
+  - Substation/0
+  - HostingCapacity_Substation_GEN/1
+  - HostingCapacity_Substation_LOAD/11
+- term: ASSET_LABE
+  esri_type: esriFieldTypeString
+  used_in:
+  - Substation/0
+  - HostingCapacity_Substation_GEN/1
+  - HostingCapacity_Substation_LOAD/11
+- term: CONSTRUCTI
+  esri_type: esriFieldTypeString
+  used_in:
+  - Substation/0
+  - HostingCapacity_Substation_GEN/1
+  - HostingCapacity_Substation_LOAD/11
+  - transformer__XFMR_/29
+- term: SW_ID
+  esri_type: esriFieldTypeDouble
+  used_in:
+  - Substation/0
+  - HostingCapacity_Substation_GEN/1
+  - HostingCapacity_Substation_LOAD/11
+  - span__SPAN_/10
+  - transformer__XFMR_/29
+  - servicepoint__SRPT_/28
+  - streetlight__STLT_/40
+  - zonesubstationsite__ZSSS_/84
+  - pole_timber_PTIM_/0
+- term: KVA
+  esri_type: esriFieldTypeDouble
+  used_in:
+  - Substation/0
+  - transformer__XFMR_/29
+- term: PREMISE_CO
+  esri_type: esriFieldTypeInteger
+  used_in:
+  - Substation/0
+  - HostingCapacity_Substation_GEN/1
+  - HostingCapacity_Substation_LOAD/11
+  - transformer__XFMR_/29
+- term: PRIMARY_VO
+  esri_type: esriFieldTypeString
+  used_in:
+  - Substation/0
+  - HostingCapacity_Substation_GEN/1
+  - HostingCapacity_Substation_LOAD/11
+  - transformer__XFMR_/29
+- term: SUBURB
+  esri_type: esriFieldTypeString
+  used_in:
+  - Substation/0
+  - HostingCapacity_Substation_GEN/1
+  - HostingCapacity_Substation_LOAD/11
+  - transformer__XFMR_/29
+  - streetlight__STLT_/40
+- term: VICINITY
+  esri_type: esriFieldTypeString
+  used_in:
+  - Substation/0
+  - HostingCapacity_Substation_GEN/1
+  - HostingCapacity_Substation_LOAD/11
+  - transformer__XFMR_/29
+  - streetlight__STLT_/40
+  - pole_timber_PTIM_/0
+- term: WACS_ID
+  esri_type: esriFieldTypeDouble
+  used_in:
+  - Substation/0
+  - HostingCapacity_Substation_GEN/1
+  - HostingCapacity_Substation_LOAD/11
+- term: OBJECTID
+  esri_type: esriFieldTypeOID
+  used_in:
+  - HostingCapacity_Substation_GEN/1
+  - HostingCapacity_Substation_LOAD/11
+  - hc_gen_hex_5km/39
+  - hc_load_hex_5km/35
+  - Suitable_Poles_2026/13
+- term: feeder
+  esri_type: esriFieldTypeString
+  used_in:
+  - HostingCapacity_Substation_GEN/1
+- term: substation
+  esri_type: esriFieldTypeString
+  used_in:
+  - HostingCapacity_Substation_GEN/1
+- term: feature_id
+  esri_type: esriFieldTypeString
+  used_in:
+  - HostingCapacity_Substation_GEN/1
+- term: capacity_label
+  esri_type: esriFieldTypeString
+  used_in:
+  - HostingCapacity_Substation_GEN/1
+- term: min_constraint
+  esri_type: esriFieldTypeString
+  used_in:
+  - HostingCapacity_Substation_GEN/1
+- term: max_constraint
+  esri_type: esriFieldTypeString
+  used_in:
+  - HostingCapacity_Substation_GEN/1
+- term: kVA_rating
+  esri_type: esriFieldTypeInteger
+  used_in:
+  - HostingCapacity_Substation_GEN/1
+  - HostingCapacity_Substation_LOAD/11
+- term: min_spare_thermal_kW
+  esri_type: esriFieldTypeInteger
+  used_in:
+  - HostingCapacity_Substation_GEN/1
+- term: max_spare_thermal_kW
+  esri_type: esriFieldTypeInteger
+  used_in:
+  - HostingCapacity_Substation_GEN/1
+- term: feeder_1
+  esri_type: esriFieldTypeString
+  aliases:
+  - feeder
+  used_in:
+  - HostingCapacity_Substation_LOAD/11
+- term: substation_1
+  esri_type: esriFieldTypeString
+  aliases:
+  - substation
+  used_in:
+  - HostingCapacity_Substation_LOAD/11
+- term: feature_id_1
+  esri_type: esriFieldTypeString
+  aliases:
+  - feature_id
+  used_in:
+  - HostingCapacity_Substation_LOAD/11
+- term: capacity_label_1
+  esri_type: esriFieldTypeString
+  aliases:
+  - capacity_label
+  used_in:
+  - HostingCapacity_Substation_LOAD/11
+- term: min_constraint_1
+  esri_type: esriFieldTypeString
+  aliases:
+  - min_constraint
+  used_in:
+  - HostingCapacity_Substation_LOAD/11
+- term: max_constraint_1
+  esri_type: esriFieldTypeString
+  aliases:
+  - max_constraint
+  used_in:
+  - HostingCapacity_Substation_LOAD/11
+- term: min_spare_thermal_kW_1
+  esri_type: esriFieldTypeInteger
+  aliases:
+  - min_spare_thermal_kW
+  used_in:
+  - HostingCapacity_Substation_LOAD/11
+- term: max_spare_thermal_kW_1
+  esri_type: esriFieldTypeInteger
+  aliases:
+  - max_spare_thermal_kW
+  used_in:
+  - HostingCapacity_Substation_LOAD/11
+- term: zonesub_id
+  esri_type: esriFieldTypeInteger
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+- term: zs_asset_label
+  esri_type: esriFieldTypeString
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+- term: owner
+  esri_type: esriFieldTypeString
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+- term: clean_sub_name
+  esri_type: esriFieldTypeString
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+- term: Region
+  esri_type: esriFieldTypeString
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+- term: Substation
+  esri_type: esriFieldTypeString
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+- term: kV
+  esri_type: esriFieldTypeString
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+- term: Transformer_Rating__MVA__TX_1
+  esri_type: esriFieldTypeString
+  aliases:
+  - Transformer Rating (MVA) TX.1
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+- term: Transformer_Rating__MVA__TX_2
+  esri_type: esriFieldTypeString
+  aliases:
+  - Transformer Rating (MVA) TX.2
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+- term: Transformer_Rating__MVA__TX_3
+  esri_type: esriFieldTypeString
+  aliases:
+  - Transformer Rating (MVA) TX.3
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+- term: Firm_Normal_Cyclic_Rating__MVA_
+  esri_type: esriFieldTypeDouble
+  aliases:
+  - Firm Normal Cyclic Rating (MVA)
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+- term: Forecast_PF
+  esri_type: esriFieldTypeDouble
+  aliases:
+  - Forecast PF
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+- term: Forecast__MVA__YR1
+  esri_type: esriFieldTypeDouble
+  aliases:
+  - Forecast (MVA) YR1
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+- term: Forecast__MVA__YR2
+  esri_type: esriFieldTypeDouble
+  aliases:
+  - Forecast (MVA) YR2
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+- term: Forecast__MVA__YR3
+  esri_type: esriFieldTypeDouble
+  aliases:
+  - Forecast (MVA) YR3
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+- term: Forecast__MVA__YR4
+  esri_type: esriFieldTypeDouble
+  aliases:
+  - Forecast (MVA) YR4
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+- term: Forecast__MVA__YR5
+  esri_type: esriFieldTypeDouble
+  aliases:
+  - Forecast (MVA) YR5
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+- term: Embedded_Generation__MW_
+  esri_type: esriFieldTypeDouble
+  aliases:
+  - Embedded Generation (MW)
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+- term: F95__Peak_Load_Exceeded___Hrs_
+  esri_type: esriFieldTypeDouble
+  aliases:
+  - 95% Peak Load Exceeded  (Hrs)
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+- term: ObjectId
+  esri_type: esriFieldTypeOID
+  used_in:
+  - DAPR_ZS_Summer_v2/0
+  - DAPR_ZS_Winter_v2/0
+  - DAPR_TX_Lines/0
+  - NIP_ZS_Forecast/0
+  - Distrib_Feeder_Fcasts/0
+- term: F2025
+  esri_type: esriFieldTypeDouble
+  aliases:
+  - '2025'
+  used_in:
+  - DAPR_TX_Lines/0
+  - NIP_ZS_Forecast/0
+- term: F2026
+  esri_type: esriFieldTypeDouble
+  aliases:
+  - '2026'
+  used_in:
+  - DAPR_TX_Lines/0
+  - NIP_ZS_Forecast/0
+- term: F2027
+  esri_type: esriFieldTypeDouble
+  aliases:
+  - '2027'
+  used_in:
+  - DAPR_TX_Lines/0
+  - NIP_ZS_Forecast/0
+- term: F2028
+  esri_type: esriFieldTypeDouble
+  aliases:
+  - '2028'
+  used_in:
+  - DAPR_TX_Lines/0
+  - NIP_ZS_Forecast/0
+- term: F2029
+  esri_type: esriFieldTypeDouble
+  aliases:
+  - '2029'
+  used_in:
+  - DAPR_TX_Lines/0
+  - NIP_ZS_Forecast/0
+- term: SupplyArea
+  esri_type: esriFieldTypeString
+  used_in:
+  - DAPR_TX_Lines/0
+- term: Feeder
+  esri_type: esriFieldTypeString
+  used_in:
+  - DAPR_TX_Lines/0
+- term: FeederVoltagekV
+  esri_type: esriFieldTypeInteger
+  used_in:
+  - DAPR_TX_Lines/0
+- term: FeederOrigin
+  esri_type: esriFieldTypeString
+  used_in:
+  - DAPR_TX_Lines/0
+- term: FeederDest
+  esri_type: esriFieldTypeString
+  used_in:
+  - DAPR_TX_Lines/0
+- term: season
+  esri_type: esriFieldTypeString
+  used_in:
+  - DAPR_TX_Lines/0
+  - NIP_ZS_Forecast/0
+  - Distrib_Feeder_Fcasts/0
+- term: MVA
+  esri_type: esriFieldTypeInteger
+  used_in:
+  - DAPR_TX_Lines/0
+- term: F2030
+  esri_type: esriFieldTypeDouble
+  aliases:
+  - '2030'
+  used_in:
+  - NIP_ZS_Forecast/0
+- term: site_id
+  esri_type: esriFieldTypeString
+  used_in:
+  - NIP_ZS_Forecast/0
+  - Distrib_Feeder_Fcasts/0
+- term: F2025_to_2030
+  esri_type: esriFieldTypeString
+  aliases:
+  - 2025 to 2030
+  used_in:
+  - NIP_ZS_Forecast/0
+- term: Movement
+  esri_type: esriFieldTypeString
+  used_in:
+  - NIP_ZS_Forecast/0
+- term: year
+  esri_type: esriFieldTypeInteger
+  used_in:
+  - Distrib_Feeder_Fcasts/0
+- term: unit
+  esri_type: esriFieldTypeString
+  used_in:
+  - Distrib_Feeder_Fcasts/0
+- term: statistic
+  esri_type: esriFieldTypeString
+  used_in:
+  - Distrib_Feeder_Fcasts/0
+- term: amount
+  esri_type: esriFieldTypeDouble
+  used_in:
+  - Distrib_Feeder_Fcasts/0
+- term: zonesub_asset_label
+  esri_type: esriFieldTypeString
+  used_in:
+  - Distrib_Feeder_Fcasts/0
+- term: feeder_asset_label
+  esri_type: esriFieldTypeString
+  used_in:
+  - Distrib_Feeder_Fcasts/0
+- term: operating_voltage
+  esri_type: esriFieldTypeString
+  used_in:
+  - Distrib_Feeder_Fcasts/0
+- term: feature_ty
+  esri_type: esriFieldTypeString
+  used_in:
+  - EV_POIs/0
+- term: station_na
+  esri_type: esriFieldTypeString
+  used_in:
+  - EV_POIs/0
+- term: CLUSTER_ID
+  esri_type: esriFieldTypeInteger
+  used_in:
+  - EV_POIs/1
+  - EV_POIs/2
+  - EV_POIs/3
+  - EV_POIs/4
+- term: NEAR_DIST_
+  esri_type: esriFieldTypeDouble
+  used_in:
+  - EV_POIs/1
+  - EV_POIs/3
+- term: NEAR_FID
+  esri_type: esriFieldTypeInteger
+  used_in:
+  - EV_POIs/1
+  - EV_POIs/3
+- term: Within_5km
+  esri_type: esriFieldTypeString
+  used_in:
+  - EV_POIs/1
+  - EV_POIs/2
+- term: OBJECTID_2
+  esri_type: esriFieldTypeInteger
+  used_in:
+  - EV_POIs/2
+- term: WACS_ID_A
+  esri_type: esriFieldTypeString
+  used_in:
+  - EV_POIs/2
+  - EV_POIs/4
+  - span__SPAN_/10
+  - transformer__XFMR_/29
+  - servicepoint__SRPT_/28
+  - streetlight__STLT_/40
+  - Suitable_Poles_2026/13
+  - pole_timber_PTIM_/0
+- term: TYPE_CD_A
+  esri_type: esriFieldTypeString
+  used_in:
+  - EV_POIs/2
+  - EV_POIs/4
+  - span__SPAN_/10
+  - transformer__XFMR_/29
+  - servicepoint__SRPT_/28
+  - streetlight__STLT_/40
+  - pole_timber_PTIM_/0
+- term: INT_LBL_A
+  esri_type: esriFieldTypeString
+  used_in:
+  - EV_POIs/2
+  - EV_POIs/4
+- term: OWNER_A
+  esri_type: esriFieldTypeString
+  used_in:
+  - EV_POIs/2
+  - EV_POIs/4
+- term: STATUS_A
+  esri_type: esriFieldTypeString
+  used_in:
+  - EV_POIs/2
+  - EV_POIs/4
+- term: FEEDER_S
+  esri_type: esriFieldTypeString
+  used_in:
+  - EV_POIs/2
+  - EV_POIs/4
+- term: H_VOLT_S
+  esri_type: esriFieldTypeString
+  used_in:
+  - EV_POIs/2
+  - EV_POIs/4
+- term: P_MAT_A
+  esri_type: esriFieldTypeString
+  used_in:
+  - EV_POIs/2
+  - EV_POIs/4
+- term: P_TYPE_S
+  esri_type: esriFieldTypeString
+  used_in:
+  - EV_POIs/2
+  - EV_POIs/4
+- term: P_FUNCT_S
+  esri_type: esriFieldTypeString
+  used_in:
+  - EV_POIs/2
+  - EV_POIs/4
+- term: WACS_ID_S
+  esri_type: esriFieldTypeString
+  used_in:
+  - EV_POIs/2
+  - EV_POIs/4
+  - span__SPAN_/10
+  - transformer__XFMR_/29
+  - servicepoint__SRPT_/28
+  - streetlight__STLT_/40
+  - zonesubstationsite__ZSSS_/84
+  - Suitable_Poles_2026/13
+  - pole_timber_PTIM_/0
+- term: INT_LBL_S
+  esri_type: esriFieldTypeString
+  used_in:
+  - EV_POIs/2
+  - EV_POIs/4
+  - Suitable_Poles_2026/13
+- term: STATUS_S
+  esri_type: esriFieldTypeString
+  used_in:
+  - EV_POIs/2
+  - EV_POIs/4
+- term: COLOR_ID
+  esri_type: esriFieldTypeInteger
+  used_in:
+  - EV_POIs/2
+  - EV_POIs/4
+- term: NEAR_DIST1
+  esri_type: esriFieldTypeDouble
+  used_in:
+  - EV_POIs/2
+  - EV_POIs/4
+- term: Within_15k
+  esri_type: esriFieldTypeString
+  used_in:
+  - EV_POIs/3
+  - EV_POIs/4
+- term: Find_ID
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+  - transformer__XFMR_/29
+  - servicepoint__SRPT_/28
+  - streetlight__STLT_/40
+  - zonesubstationsite__ZSSS_/84
+  - pole_timber_PTIM_/0
+- term: Find_Label
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+  - transformer__XFMR_/29
+  - servicepoint__SRPT_/28
+  - streetlight__STLT_/40
+  - zonesubstationsite__ZSSS_/84
+  - pole_timber_PTIM_/0
+- term: TYPE_A
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+  - transformer__XFMR_/29
+  - servicepoint__SRPT_/28
+  - streetlight__STLT_/40
+  - pole_timber_PTIM_/0
+- term: W_LABEL_A
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+  - transformer__XFMR_/29
+  - servicepoint__SRPT_/28
+  - streetlight__STLT_/40
+  - pole_timber_PTIM_/0
+- term: SERV_STA_A
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+  - transformer__XFMR_/29
+  - servicepoint__SRPT_/28
+  - streetlight__STLT_/40
+  - pole_timber_PTIM_/0
+- term: TYPE_CD_S
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+  - transformer__XFMR_/29
+  - servicepoint__SRPT_/28
+  - streetlight__STLT_/40
+  - Suitable_Poles_2026/13
+  - pole_timber_PTIM_/0
+- term: SW_LABEL
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+  - transformer__XFMR_/29
+  - servicepoint__SRPT_/28
+  - streetlight__STLT_/40
+  - zonesubstationsite__ZSSS_/84
+  - pole_timber_PTIM_/0
+- term: FMT_NUM
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+  - transformer__XFMR_/29
+  - servicepoint__SRPT_/28
+  - streetlight__STLT_/40
+  - zonesubstationsite__ZSSS_/84
+  - pole_timber_PTIM_/0
+- term: CONST_TYPE
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+- term: STRANDING
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+- term: COMMON_NAM
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+- term: MATERIAL
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+  - pole_timber_PTIM_/0
+- term: REGION
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+  - pole_timber_PTIM_/0
+- term: NUM_CABLES
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+- term: VOLTAGE
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+- term: OWNER
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+  - zonesubstationsite__ZSSS_/84
+  - pole_timber_PTIM_/0
+- term: PHASES
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+- term: DEPOT
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+  - pole_timber_PTIM_/0
+- term: FEEDER
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+  - pole_timber_PTIM_/0
+- term: FUNCTION_
+  esri_type: esriFieldTypeString
+  used_in:
+  - span__SPAN_/10
+  - pole_timber_PTIM_/0
+- term: CONTROL_ME
+  esri_type: esriFieldTypeString
+  used_in:
+  - streetlight__STLT_/40
+- term: LANTERN_TY
+  esri_type: esriFieldTypeString
+  used_in:
+  - streetlight__STLT_/40
+- term: LIGHTING_C
+  esri_type: esriFieldTypeString
+  used_in:
+  - streetlight__STLT_/40
+- term: NUM_LANTER
+  esri_type: esriFieldTypeString
+  used_in:
+  - streetlight__STLT_/40
+- term: OPERATING_
+  esri_type: esriFieldTypeString
+  used_in:
+  - streetlight__STLT_/40
+- term: PL_CAT_TAB
+  esri_type: esriFieldTypeString
+  used_in:
+  - streetlight__STLT_/40
+- term: SUPPORT_TY
+  esri_type: esriFieldTypeString
+  used_in:
+  - streetlight__STLT_/40
+- term: TNI_ID
+  esri_type: esriFieldTypeString
+  used_in:
+  - zonesubstationsite__ZSSS_/84
+- term: GRID_ID
+  esri_type: esriFieldTypeString
+  used_in:
+  - hc_gen_hex_5km/39
+  - hc_load_hex_5km/35
+- term: sum_Firm_Spare_Capacity_kW
+  esri_type: esriFieldTypeDouble
+  aliases:
+  - Sum Firm_Spare_Capacity_kW
+  used_in:
+  - hc_gen_hex_5km/39
+  - hc_load_hex_5km/35
+- term: mean_Firm_Spare_Capacity_kW
+  esri_type: esriFieldTypeDouble
+  aliases:
+  - Mean Firm_Spare_Capacity_kW
+  used_in:
+  - hc_gen_hex_5km/39
+  - hc_load_hex_5km/35
+- term: Point_Count
+  esri_type: esriFieldTypeInteger
+  aliases:
+  - Count of Points
+  used_in:
+  - hc_gen_hex_5km/39
+  - hc_load_hex_5km/35
+- term: INT_ID_A
+  esri_type: esriFieldTypeDouble
+  used_in:
+  - Suitable_Poles_2026/13
+- term: LGA_CODE
+  esri_type: esriFieldTypeDouble
+  used_in:
+  - Suitable_Poles_2026/13
+- term: LGA_NAME
+  esri_type: esriFieldTypeString
+  used_in:
+  - Suitable_Poles_2026/13
+- term: Project
+  esri_type: esriFieldTypeString
+  used_in:
+  - Suitable_Poles_2026/13
+- term: Suitable
+  esri_type: esriFieldTypeString
+  used_in:
+  - Suitable_Poles_2026/13
+- term: Reviewed_b
+  esri_type: esriFieldTypeString
+  used_in:
+  - Suitable_Poles_2026/13
+- term: Notes
+  esri_type: esriFieldTypeString
+  used_in:
+  - Suitable_Poles_2026/13
+- term: BUSHFIRE_R
+  esri_type: esriFieldTypeString
+  used_in:
+  - pole_timber_PTIM_/0
+- term: FDR_AREA
+  esri_type: esriFieldTypeString
+  used_in:
+  - pole_timber_PTIM_/0
+- term: GPS_SOURCE
+  esri_type: esriFieldTypeString
+  used_in:
+  - pole_timber_PTIM_/0
+- term: HIGHEST_V
+  esri_type: esriFieldTypeString
+  used_in:
+  - pole_timber_PTIM_/0
+- term: LANDUSE
+  esri_type: esriFieldTypeString
+  used_in:
+  - pole_timber_PTIM_/0
+- term: LENGTH
+  esri_type: esriFieldTypeString
+  used_in:
+  - pole_timber_PTIM_/0
+- term: LOCALITY
+  esri_type: esriFieldTypeString
+  used_in:
+  - pole_timber_PTIM_/0
+- term: MAINT_AREA
+  esri_type: esriFieldTypeString
+  used_in:
+  - pole_timber_PTIM_/0
+- term: M_LANDUSE
+  esri_type: esriFieldTypeString
+  used_in:
+  - pole_timber_PTIM_/0
+- term: RESPONSIB
+  esri_type: esriFieldTypeString
+  used_in:
+  - pole_timber_PTIM_/0
+- term: STRENGTH
+  esri_type: esriFieldTypeString
+  used_in:
+  - pole_timber_PTIM_/0
+- term: VEG_AREA
+  esri_type: esriFieldTypeString
+  used_in:
+  - pole_timber_PTIM_/0

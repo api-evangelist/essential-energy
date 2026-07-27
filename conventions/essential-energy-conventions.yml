@@ -1,0 +1,185 @@
+generated: '2026-07-27'
+method: derived
+source: >-
+  Derived from the ArcGIS REST service descriptors harvested in arcgis/ and verified
+  with live anonymous calls against
+  https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services on 2026-07-27.
+docs: https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/
+summary: >-
+  Essential Energy publishes no API conventions of its own. The cross-cutting semantics
+  of its public surface are entirely those of the Esri ArcGIS REST API (currentVersion
+  12, fullVersion 12.0.0) as instantiated by ArcGIS Online. This document captures the
+  conventions a client actually has to implement, each one confirmed against the live
+  services rather than assumed from the vendor reference.
+protocol:
+  style: REST-ish RPC over HTTPS
+  base: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services
+  resource_pattern: /<serviceName>/FeatureServer/<layerId>/<operation>
+  methods:
+  - GET
+  - POST
+  note: >-
+    Operations are path segments, not HTTP verbs — /query, /queryRelatedRecords,
+    /generateRenderer. GET and POST are interchangeable for /query; POST is required
+    when the where clause or geometry exceeds URL length limits.
+content_negotiation:
+  mechanism: query parameter, not Accept header
+  parameter: f
+  values_verified:
+  - value: json
+    result: Esri JSON FeatureSet
+    status: 200
+  - value: geojson
+    result: RFC 7946 FeatureCollection
+    status: 200
+    evidence: examples/essential-energy-service-areas-geojson-response.json
+  - value: html
+    result: Esri Services Directory HTML page
+  values_advertised:
+    supportedQueryFormats: JSON
+    supportedExportFormats: csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel
+    supportedConvertFileFormats: JSON,PBF
+  note: >-
+    An unrecognised f value is the one case observed that returns a real HTTP error
+    status — f=bogus returned HTTP 400 with a plain-text "Bad Request" body rather than
+    the JSON error envelope.
+authentication:
+  scheme: none
+  detail: see authentication/essential-energy-authentication.yml
+pagination:
+  style: offset
+  request_params:
+  - name: resultOffset
+    description: Zero-based index of the first record to return.
+  - name: resultRecordCount
+    description: Number of records to return in this page.
+  - name: returnIdsOnly
+    description: Returns only object IDs, letting a client page by ID batches.
+  - name: returnCountOnly
+    description: Returns only a count — the cheapest way to size a result set.
+  response_signal:
+    field: exceededTransferLimit
+    location: top level of the Esri JSON response, or properties.exceededTransferLimit on a GeoJSON response
+    meaning: >-
+      true means the server truncated the result at maxRecordCount and the client must
+      page. Observed true on an EE_Service_Areas query returning 3 of N records.
+    evidence: examples/essential-energy-service-areas-geojson-response.json
+  page_size_limits:
+    maxRecordCount_2000:
+    - EE_Service_Areas
+    - Substation
+    - HostingCapacity_Substation_GEN
+    - HostingCapacity_Substation_LOAD
+    - HostingCapacity_Service_Areas
+    - EV_POIs
+    - span__SPAN_
+    - transformer__XFMR_
+    - servicepoint__SRPT_
+    - streetlight__STLT_
+    - zonesubstationsite__ZSSS_
+    - hc_gen_hex_5km
+    - hc_load_hex_5km
+    - Suitable_Poles_2026
+    maxRecordCount_1000:
+    - DAPR_ZS_Summer_v2
+    - DAPR_ZS_Winter_v2
+    - DAPR_TX_Lines
+    - NIP_ZS_Forecast
+    - Distrib_Feeder_Fcasts
+    - pole_timber_PTIM_
+    maxIdsCount: 1000000
+  warning: >-
+    maxRecordCount varies per service — 2000 on the asset and hosting-capacity services,
+    1000 on the DAPR/NIP planning tables. Read it from the FeatureServer descriptor
+    rather than hard-coding it.
+filtering:
+  where:
+    description: SQL-92-style predicate evaluated server-side.
+    example: where=1%3D1
+    errors: >-
+      An unknown column produces code 400 with details ["'Invalid field: <name>'
+      parameter is invalid"] — see errors/essential-energy-problem-types.yml.
+  field_selection:
+    parameter: outFields
+    description: Comma-separated field list, or * for all. Invalid names are rejected, not ignored.
+  ordering:
+    parameter: orderByFields
+  spatial:
+    parameters:
+    - geometry
+    - geometryType
+    - inSR
+    - outSR
+    - spatialRel
+    - distance
+    - units
+    default_spatial_reference:
+      wkid: 102100
+      latestWkid: 3857
+      note: Web Mercator. Pass outSR=4326 to get WGS84 lon/lat.
+  geometry_control:
+    parameter: returnGeometry
+    description: returnGeometry=false is the cheap path for tabular reads of the DAPR/NIP tables.
+  statistics:
+    parameters:
+    - outStatistics
+    - groupByFieldsForStatistics
+idempotency:
+  supported: false
+  reason: >-
+    The public surface is read-only query. No idempotency key, no request-deduplication
+    header and no unsafe operation is exposed to anonymous clients — /applyEdits returns
+    "This operation is not supported." All reads are naturally idempotent, but there is
+    no idempotency contract to implement.
+metadata_and_tracing:
+  request_id_header: none
+  correlation: >-
+    No request-id, trace-id or correlation header is returned. Clients that need
+    traceability must generate their own and cannot expect it echoed.
+  cache_headers: >-
+    Responses are served through the ArcGIS Online CDN; cache behaviour is the
+    platform's and is not documented by Essential Energy.
+versioning:
+  api_version:
+    scheme: platform version reported in every response envelope
+    field: currentVersion
+    current: 12
+    full: 12.0.0
+    source: arcgis/essential-energy-arcgis-rest-info.json
+  resource_version:
+    scheme: name suffix on the service, publisher-controlled
+    observed:
+    - DAPR_ZS_Summer -> DAPR_ZS_Summer_v2
+    - OH_Span_TX -> OH_Span_TX_2 -> OH_Span_TX_3
+    - Suitable_Poles -> Suitable_Poles_2026
+    - Sub_Cables -> Sub_Cables_R1
+    - span__SPAN_ and span_SPAN_ (double- and single-underscore variants both live)
+    warning: >-
+      Superseded services are left published alongside their replacements with no
+      deprecation marker, no Sunset header and no note in the service description. A
+      client cannot tell from the API which of a _v2/_R1/_2026 pair is current. See
+      lifecycle/essential-energy-lifecycle.yml.
+error_envelope:
+  shape: '{"error":{"code":<int>,"message":<string>,"details":[<string>,...]}}'
+  transport_status: >-
+    HTTP 200 — the error is in the body, not the status line. This is the single most
+    important convention for an agent consuming this API: never branch on HTTP status
+    alone; always test for an "error" key in the parsed body.
+  exception: An invalid f value returns a genuine HTTP 400 with a plain-text body.
+  detail: errors/essential-energy-problem-types.yml
+rate_limits:
+  published: false
+  headers: none observed
+  detail: >-
+    Essential Energy publishes no rate limit and the services return no X-RateLimit-*
+    or Retry-After headers on successful calls. The only quantified limits are result
+    limits — maxRecordCount (1000-2000) and maxIdsCount (1000000) — which shape request
+    size, not request rate. Treat throughput as an undocumented platform property and
+    back off politely.
+cross_references:
+  authentication: authentication/essential-energy-authentication.yml
+  errors: errors/essential-energy-problem-types.yml
+  lifecycle: lifecycle/essential-energy-lifecycle.yml
+  conformance: conformance/essential-energy-conformance.yml
+  examples: examples/essential-energy-examples.yml
+  data_model: data-model/essential-energy-data-model.yml

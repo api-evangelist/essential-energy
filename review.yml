@@ -356,6 +356,108 @@ sources:
     type: Reference
     note: Authoritative public CDR energy data-holder register. Essential Energy absent.
 
+enrichmentRounds:
+  - date: '2026-07-27'
+    round: 2
+    method: search / probe / derive
+    contractDiscoveryRerun: >-
+      Re-probed for a machine-readable contract before accepting "no spec". OGC API -
+      Features re-tested on a second service (HostingCapacity_Substation_GEN) as well as
+      EE_Service_Areas — /OGCFeatureServer, /OGCFeatureServer/api and
+      /OGCFeatureServer/collections all return the Esri error envelope, so no
+      standards-based OpenAPI exists. /llms.txt and the full /.well-known/ set probed on
+      www., dapr., engage., services-ap1.arcgis.com and essentialenergy.maps.arcgis.com —
+      nothing served. essential-energy.opendata.arcgis.com and
+      data-essentialenergy.opendata.arcgis.com return HTTP 200 but are the generic ArcGIS
+      Hub wildcard SPA (an invented control subdomain returns the identical page), so they
+      are NOT an Essential Energy open-data portal. Confirmed: no OpenAPI, Swagger,
+      AsyncAPI, GraphQL, gRPC, MCP or Postman artifact exists.
+    newFindings:
+      - finding: Vulnerability disclosure policy EXISTS
+        detail: >-
+          https://www.essentialenergy.com.au/about-us/corporate-governance/vulnerability-disclosure-policy
+          is published under corporate governance — a responsible-disclosure policy with an
+          email intake and an explicit statement that it does not authorise penetration
+          testing. Round 1 missed it because every probe against www.essentialenergy.com.au
+          is Cloudflare-blocked (403 to all automated clients, including WebFetch with a
+          browser user agent). The page body remains unreachable; the policy URL and terms
+          were established from the search index. There is still no RFC 9116 security.txt.
+      - finding: Errors are returned with HTTP 200
+        detail: >-
+          Six error conditions reproduced live. Every one returns HTTP 200 with an
+          {"error":{"code","message","details"}} body — except an invalid f value, which
+          returns a genuine HTTP 400 with a plain-text body. This is the single most
+          important consumer-facing fact about the surface and is now catalogued in
+          errors/essential-energy-problem-types.yml.
+      - finding: Layer ids are arbitrary, not zero-based
+        detail: >-
+          Verified across 24 layers — HostingCapacity_Substation_GEN exposes layer 1,
+          _LOAD layer 11, HostingCapacity_Service_Areas layer 10, span__SPAN_ layer 10,
+          servicepoint__SRPT_ 28, transformer__XFMR_ 29, streetlight__STLT_ 40,
+          zonesubstationsite__ZSSS_ 84. Guessing /0/ returns the Invalid URL error.
+      - finding: Two services advertise write capabilities
+        detail: >-
+          Capabilities harvested for all 100 FeatureServers — 91 Query, 6 Query,Extract,
+          1 Query,ChangeTracking (DGN_Tiles) and 2 Query,Update,Editing (Suitable_Poles,
+          Suitable_Poles_2026), the latter with editorTrackingInfo allowing anonymous
+          update. Recorded verbatim from published metadata; no write was attempted. Flagged
+          escalation-required in agentic-access/.
+      - finding: Silent version drift across service names
+        detail: >-
+          DAPR_ZS_Summer / _v2, OH_Span_TX / _2 / _3, Suitable_Poles / _2026, Sub_Cables /
+          _R1, span__SPAN_ / span_SPAN_ are all live simultaneously with no deprecation
+          marker, no Sunset header and no note in serviceDescription. A consumer cannot tell
+          which is current from the API.
+      - finding: 144,569 substations
+        detail: >-
+          returnCountOnly query against Substation/FeatureServer/0 — the first quantified
+          measure of the surface's scale.
+    artifactsAdded:
+      - authentication/essential-energy-authentication.yml
+      - conventions/essential-energy-conventions.yml
+      - errors/essential-energy-problem-types.yml
+      - lifecycle/essential-energy-lifecycle.yml
+      - conformance/essential-energy-conformance.yml
+      - vocabulary/essential-energy-vocabulary.yml
+      - data-model/essential-energy-data-model.yml
+      - examples/essential-energy-examples.yml (+ 5 verbatim response captures)
+      - agentic-access/essential-energy-agentic-access.yml
+      - security/essential-energy-domain-security.yml
+      - security/essential-energy-vulnerability-disclosure.yml
+      - well-known/essential-energy-well-known.yml
+      - llms/essential-energy-llms.txt
+      - skills/_index.yml + 3 agent skills
+      - arcgis/essential-energy-arcgis-rest-info.json
+      - arcgis/essential-energy-service-capabilities.json (all 100 services)
+      - arcgis/essential-energy-layer-field-schemas.json (24 layers, 160 fields)
+    deliberatelyNotEmitted:
+      - pointer: StatusPage
+        reason: >-
+          Essential Energy publishes no status page. status.arcgis.com is Esri's and is
+          recorded inside lifecycle/ as the hosting platform's, not wired as a pointer.
+      - pointer: Deprecation
+        reason: No deprecation policy, no Sunset header, no superseded-service marking.
+      - pointer: Compliance
+        reason: No certification or compliance programme is published; no trust centre exists.
+      - pointer: Idempotency
+        reason: >-
+          Read-only surface with no idempotency contract. Conventions records this as
+          supported:false rather than claiming a key that does not exist.
+      - pointer: SDKs / Packages
+        reason: >-
+          No first-party client library exists. Esri's SDKs are the platform vendor's, not
+          Essential Energy's.
+      - pointer: MCPServer / ToolCrosswalk
+        reason: No MCP server and no OpenAPI to bind tools to.
+      - pointer: WellKnown
+        reason: >-
+          Every /.well-known/ probe missed. The index file is kept as a recorded negative and
+          pointed at as a Reference, not claimed as a discovery catalogue.
+      - pointer: AsyncAPI / Webhooks
+        reason: >-
+          No consumer event surface. FeatureServer supportsWebHooks is an authenticated
+          ArcGIS admin capability, not a published webhook catalogue.
+
 conclusions:
   status: built
   apisListed: 3

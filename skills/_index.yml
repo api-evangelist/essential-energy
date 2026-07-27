@@ -1,0 +1,57 @@
+generated: '2026-07-27'
+method: generated
+source: >-
+  Grounded in arcgis/essential-energy-arcgis-services-catalog.json,
+  arcgis/essential-energy-layer-field-schemas.json and
+  arcgis/essential-energy-service-capabilities.json — all harvested live from the public
+  ArcGIS REST surface on 2026-07-27. Essential Energy publishes no OpenAPI and no skills of
+  its own, so every step is grounded in a verified endpoint, layer id and field name rather
+  than an operationId.
+note: >-
+  Essential Energy publishes no AGENTS.md, no skills and no agent guidance. These are API
+  Evangelist-authored operating instructions, not provider-published ones.
+skills:
+- file: essential-energy-der-hosting-capacity-lookup.md
+  name: Look up DER hosting capacity for a location on the Essential Energy network
+  api: Essential Energy Hosting Capacity Feature Services
+  operations:
+  - GET /HostingCapacity_Substation_GEN/FeatureServer/1/query
+  - GET /HostingCapacity_Substation_LOAD/FeatureServer/11/query
+  - GET /hc_gen_hex_5km/FeatureServer/39/query
+  - GET /hc_load_hex_5km/FeatureServer/35/query
+  - GET /HostingCapacity_Service_Areas/FeatureServer/10/query
+- file: essential-energy-network-asset-query.md
+  name: Query Essential Energy physical network assets in an area
+  api: Essential Energy Network Asset Feature Services
+  operations:
+  - GET /arcgis/rest/services?f=json
+  - GET /Substation/FeatureServer/0/query
+  - GET /transformer__XFMR_/FeatureServer/29/query
+  - GET /span__SPAN_/FeatureServer/10/query
+  - GET /pole_timber_PTIM_/FeatureServer/0/query
+  - GET /streetlight__STLT_/FeatureServer/40/query
+  - GET /servicepoint__SRPT_/FeatureServer/28/query
+  - GET /zonesubstationsite__ZSSS_/FeatureServer/84/query
+- file: essential-energy-dapr-planning-forecast.md
+  name: Pull Essential Energy regulated network planning forecasts (DAPR)
+  api: Essential Energy Network Planning and DAPR Feature Services
+  operations:
+  - GET /DAPR_ZS_Summer_v2/FeatureServer/0/query
+  - GET /DAPR_ZS_Winter_v2/FeatureServer/0/query
+  - GET /DAPR_TX_Lines/FeatureServer/0/query
+  - GET /NIP_ZS_Forecast/FeatureServer/0/query
+  - GET /Distrib_Feeder_Fcasts/FeatureServer/0/query
+shared_rules:
+- No authentication on any call — anonymous HTTPS GET.
+- Errors arrive with HTTP 200 and an {"error":{...}} body; always parse before trusting.
+- Layer ids are per-service and arbitrary; read the FeatureServer descriptor first.
+- maxRecordCount is 2000 on asset services and 1000 on the planning tables; page with resultOffset/resultRecordCount while exceededTransferLimit is true.
+- The surface is read-only; never attempt applyEdits.
+- No customer, NMI, account, consumption or billing data exists anywhere on this surface.
+cross_references:
+  conventions: conventions/essential-energy-conventions.yml
+  errors: errors/essential-energy-problem-types.yml
+  data_model: data-model/essential-energy-data-model.yml
+  vocabulary: vocabulary/essential-energy-vocabulary.yml
+  examples: examples/essential-energy-examples.yml
+  agentic_access: agentic-access/essential-energy-agentic-access.yml

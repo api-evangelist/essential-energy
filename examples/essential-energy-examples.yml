@@ -1,0 +1,113 @@
+generated: '2026-07-27'
+method: probed
+source: >-
+  Every request below was executed anonymously against
+  https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services on 2026-07-27 and
+  the response body was saved verbatim. No response was edited, trimmed or synthesised.
+summary: >-
+  Essential Energy ships no OpenAPI, so it ships no examples. These are captured
+  request/response pairs covering the four shapes a consumer actually meets: a feature
+  query, a tabular planning-table query, a GeoJSON query, a count-only query, and an error.
+base_url: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services
+auth: none
+examples:
+- name: Query DER generation hosting capacity by substation
+  entity: SubstationHostingCapacityGEN
+  request:
+    method: GET
+    url: >-
+      https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/HostingCapacity_Substation_GEN/FeatureServer/1/query?where=1%3D1&outFields=*&resultRecordCount=2&f=json
+    params:
+      where: 1=1
+      outFields: '*'
+      resultRecordCount: 2
+      f: json
+  response:
+    http_status: 200
+    file: examples/essential-energy-hostingcapacity-gen-query-response.json
+    shape: Esri JSON FeatureSet with fields[], geometryType esriGeometryPoint, features[].attributes + .geometry
+  notes:
+  - >-
+    The layer id is 1, not 0. Querying /0/query on this service returns the Invalid URL
+    error envelope.
+  - >-
+    min_spare_thermal_kW and max_spare_thermal_kW are the headline capacity numbers a DER
+    developer wants.
+- name: Query DAPR zone substation summer forecast (tabular)
+  entity: ZoneSubstationForecast
+  request:
+    method: GET
+    url: >-
+      https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/DAPR_ZS_Summer_v2/FeatureServer/0/query?where=1%3D1&outFields=*&resultRecordCount=2&returnGeometry=false&f=json
+    params:
+      where: 1=1
+      outFields: '*'
+      resultRecordCount: 2
+      returnGeometry: false
+      f: json
+  response:
+    http_status: 200
+    file: examples/essential-energy-dapr-zs-summer-query-response.json
+    shape: Esri JSON FeatureSet with no geometry (the resource is a Table, not a Feature Layer)
+  notes:
+  - >-
+    maxRecordCount on the DAPR/NIP tables is 1000, not the 2000 used by the asset services.
+  - Field aliases carry the human labels, e.g. Forecast__MVA__YR1 -> "Forecast (MVA) YR1".
+- name: Query service areas as GeoJSON
+  entity: ServiceArea
+  request:
+    method: GET
+    url: >-
+      https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/EE_Service_Areas/FeatureServer/0/query?where=1%3D1&outFields=area_name%2Ccode%2Ccoverage&returnGeometry=false&resultRecordCount=3&f=geojson
+    params:
+      where: 1=1
+      outFields: area_name,code,coverage
+      returnGeometry: false
+      resultRecordCount: 3
+      f: geojson
+  response:
+    http_status: 200
+    file: examples/essential-energy-service-areas-geojson-response.json
+    shape: RFC 7946 FeatureCollection
+  notes:
+  - >-
+    properties.exceededTransferLimit is true in this response — the pagination signal, in
+    its GeoJSON position. On an f=json response the same flag sits at the top level.
+- name: Count all substations without transferring features
+  entity: Substation
+  request:
+    method: GET
+    url: >-
+      https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/Substation/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json
+    params:
+      where: 1=1
+      returnCountOnly: true
+      f: json
+  response:
+    http_status: 200
+    file: examples/essential-energy-substation-count-response.json
+    shape: '{"count":144569,"extent":{...}}'
+  notes:
+  - >-
+    144,569 substations. returnCountOnly is the correct way to size a result set before
+    paging, and it also returns the bounding extent for free.
+- name: Error - unknown field in the where clause
+  entity: SubstationHostingCapacityGEN
+  request:
+    method: GET
+    url: >-
+      https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/HostingCapacity_Substation_GEN/FeatureServer/1/query?where=bogusfield%3D1&outFields=*&f=json
+  response:
+    http_status: 200
+    file: examples/essential-energy-error-invalid-field-response.json
+    shape: '{"error":{"code":400,"message":"Cannot perform query. Invalid query parameters.","details":["''Invalid field: bogusfield'' parameter is invalid"]}}'
+  notes:
+  - >-
+    THE most important example in this file: an error arrives with HTTP 200. Any client that
+    branches on status code alone will treat this object as data.
+  - See errors/essential-energy-problem-types.yml for the full catalogue.
+cross_references:
+  conventions: conventions/essential-energy-conventions.yml
+  errors: errors/essential-energy-problem-types.yml
+  data_model: data-model/essential-energy-data-model.yml
+  vocabulary: vocabulary/essential-energy-vocabulary.yml
