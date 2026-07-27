@@ -1,0 +1,166 @@
+aid: essential-energy
+url: https://raw.githubusercontent.com/api-evangelist/essential-energy/refs/heads/main/apis.yml
+name: Essential Energy
+kind: company
+description: >-
+  Essential Energy is a New South Wales Government-owned statutory corporation and
+  the distribution network service provider (DNSP) for 95 per cent of the geographic
+  area of NSW plus parts of southern Queensland — the poles, wires, substations and
+  streetlights, not the retail energy contract. Headquartered in Port Macquarie and
+  formed in 2011 out of the restructure of Country Energy, it sits in the regulated
+  network layer of the Australian electricity value chain alongside Ausgrid and
+  Endeavour Energy, under Australian Energy Regulator economic regulation. Its API
+  posture splits cleanly and the split is the finding: Essential Energy publishes NO
+  consumer data API and NO developer portal, and it is NOT a designated data holder
+  under the Consumer Data Right energy regime — the CDR energy obligation lands on
+  electricity retailers and AEMO, not on distributors, and Essential Energy does not
+  appear anywhere in the public CDR energy data-holder brand register. What it does
+  publish, anonymously and without a key, is a genuinely open grid-data surface: an
+  ArcGIS Online organisation exposing 100 public ArcGIS REST FeatureServers covering
+  network assets (poles, spans, cables, transformers, substations, streetlights,
+  service points), DER hosting capacity for generation and load, zone substation and
+  distribution feeder forecasts from the Distribution Annual Planning Report, and EV
+  charging suitability analysis. Open market and network data, closed consumer data.
+image: https://www.essentialenergy.com.au/favicon.ico
+tags:
+- Energy
+- Australia
+- Utilities
+- Electricity
+- Grid
+- Network Distributor
+- Open Data
+- GIS
+- DER
+- Hosting Capacity
+- EV Charging
+- Renewables
+- New South Wales
+created: '2026-07-27'
+modified: '2026-07-27'
+specificationVersion: '0.19'
+apis:
+- aid: essential-energy:essential-energy-network-asset-feature-services
+  name: Essential Energy Network Asset Feature Services
+  description: >-
+    Anonymous, key-free ArcGIS REST FeatureServer endpoints publishing Essential
+    Energy's physical distribution network as queryable geospatial features —
+    poles (timber, concrete, metal, composite), spans, cables, transformers,
+    substations, zone substation sites, streetlights and controllers, service
+    points, switchgear, fuses, reclosers, pillars, pits, towers, cross-arms,
+    third-party attachments and the network service-area boundaries. Every
+    service supports the standard ArcGIS REST /query operation over HTTPS GET
+    with no authentication. These are the services backing Essential Energy's
+    public Network Information Portal map viewer.
+  humanURL: https://essentialenergy.maps.arcgis.com/apps/webappviewer/index.html?id=947af3fb3749427e97a4824dcbd49980
+  baseURL: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services
+  tags:
+  - Grid
+  - GIS
+  - Network Assets
+  - Open Data
+  - Geospatial
+  properties:
+  - type: Reference
+    url: arcgis/essential-energy-arcgis-services-catalog.json
+  - type: Reference
+    url: arcgis/essential-energy-ee-service-areas-featureserver.json
+  - type: Reference
+    url: arcgis/essential-energy-substation-featureserver.json
+  - type: Reference
+    url: arcgis/essential-energy-arcgis-public-items.json
+  - type: Reference
+    url: arcgis/essential-energy-arcgis-portal-self.json
+  - type: APIReference
+    url: https://developers.arcgis.com/rest/services-reference/enterprise/feature-service/
+  - type: Documentation
+    url: https://engage.essentialenergy.com.au/access-to-network-data
+  - type: Portal
+    url: https://essentialenergy.maps.arcgis.com/apps/webappviewer/index.html?id=947af3fb3749427e97a4824dcbd49980
+- aid: essential-energy:essential-energy-hosting-capacity-feature-services
+  name: Essential Energy Hosting Capacity Feature Services
+  description: >-
+    Anonymous ArcGIS REST FeatureServer endpoints publishing Essential Energy's
+    distributed energy resource hosting capacity — how much generation (GEN) and
+    load (LOAD) the network can absorb — at substation level and as 1km, 5km and
+    15km hexbin aggregations, together with spare-capacity service areas and
+    substation capacity layers. The service descriptions self-identify as
+    "Hosting Capacity MVP – GEN dataset for Experience Builder" and "Hosting
+    Capacity MVP – LOAD dataset for Experience Builder", and back the public
+    network capacity map experience.
+  humanURL: https://experience.arcgis.com/experience/9e19707948544a3285a3631d0ed576f8
+  baseURL: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services
+  tags:
+  - DER
+  - Hosting Capacity
+  - Solar
+  - Grid
+  - Open Data
+  properties:
+  - type: Reference
+    url: arcgis/essential-energy-hostingcapacity-substation-gen-featureserver.json
+  - type: Reference
+    url: arcgis/essential-energy-hostingcapacity-substation-load-featureserver.json
+  - type: Reference
+    url: arcgis/essential-energy-hostingcapacity-service-areas-featureserver.json
+  - type: Reference
+    url: arcgis/essential-energy-arcgis-services-catalog.json
+  - type: APIReference
+    url: https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/
+  - type: Portal
+    url: https://experience.arcgis.com/experience/9e19707948544a3285a3631d0ed576f8
+- aid: essential-energy:essential-energy-network-planning-feature-services
+  name: Essential Energy Network Planning and DAPR Feature Services
+  description: >-
+    Anonymous ArcGIS REST FeatureServer tables and layers publishing Essential
+    Energy's regulated network planning data — zone substation summer and winter
+    ratings and forecasts (DAPR_ZS_Summer_v2, DAPR_ZS_Winter_v2, NIP_ZS_Forecast),
+    transmission line data (DAPR_TX_Lines) and distribution feeder forecasts
+    (Distrib_Feeder_Fcasts) derived from the Distribution Annual Planning Report
+    that the Australian Energy Regulator requires every distributor to publish,
+    plus EV charging point-of-interest and pole-suitability analysis layers. The
+    human-readable DAPR is separately published through a Rosetta Data Portal
+    web application, which exposes no API of its own.
+  humanURL: https://dapr.essentialenergy.com.au/
+  baseURL: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services
+  tags:
+  - Energy Markets
+  - Network Planning
+  - Forecasting
+  - EV Charging
+  - Open Data
+  properties:
+  - type: Reference
+    url: arcgis/essential-energy-dapr-zs-summer-v2-featureserver.json
+  - type: Reference
+    url: arcgis/essential-energy-dapr-tx-lines-featureserver.json
+  - type: Reference
+    url: arcgis/essential-energy-distrib-feeder-fcasts-featureserver.json
+  - type: Reference
+    url: arcgis/essential-energy-nip-zs-forecast-featureserver.json
+  - type: Reference
+    url: arcgis/essential-energy-ev-pois-featureserver.json
+  - type: Documentation
+    url: https://dapr.essentialenergy.com.au/
+  - type: APIReference
+    url: https://developers.arcgis.com/rest/services-reference/enterprise/feature-service/
+common:
+- type: Website
+  url: https://www.essentialenergy.com.au/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/essential-energy
+- type: Portal
+  url: https://essentialenergy.maps.arcgis.com/apps/webappviewer/index.html?id=947af3fb3749427e97a4824dcbd49980
+- type: Documentation
+  url: https://engage.essentialenergy.com.au/access-to-network-data
+- type: Documentation
+  url: https://dapr.essentialenergy.com.au/
+- type: Reference
+  url: arcgis/essential-energy-arcgis-services-catalog.json
+- type: Reference
+  url: arcgis/essential-energy-arcgis-public-items.json
+- type: Reference
+  url: arcgis/essential-energy-arcgis-portal-self.json
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

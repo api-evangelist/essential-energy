@@ -1,0 +1,373 @@
+aid: essential-energy
+name: Essential Energy
+review:
+  question: >-
+    Does Essential Energy publish a public developer/API surface, and does the
+    Australian Consumer Data Right energy mandate actually reach it?
+  answer: >-
+    Partly. Essential Energy publishes NO developer portal, NO consumer data API
+    and NO OpenAPI/AsyncAPI/GraphQL contract. It does publish a genuinely open,
+    anonymous, key-free ArcGIS REST geospatial API surface of 100 FeatureServers
+    covering network assets, DER hosting capacity and regulated planning data.
+    The CDR energy mandate does NOT apply to it — it is a distributor, not a
+    retailer, and it does not appear in the public CDR energy data-holder brand
+    register.
+  date: '2026-07-27'
+  reviewer: API Evangelist
+  homeMarket: Australia
+  tier: network-distributor
+
+mandate:
+  regime: none
+  regimeNote: >-
+    Essential Energy operates inside a market where a statutory consumer data
+    mandate exists (the Consumer Data Right, extended to energy by the Consumer
+    Data Right (Energy Sector) Designation 2020, administered by the ACCC with
+    standards set by the Data Standards Body), but that obligation does not
+    reach this organization. Under the CDR energy rules the designated data
+    holders are electricity RETAILERS, with AEMO acting as the gateway that
+    supplies standardised NMI standing data, DER register data and metering
+    data. Distribution network service providers (DNSPs) such as Essential
+    Energy, Ausgrid and Endeavour Energy are not designated CDR data holders and
+    carry no CDR consumer-facing API obligation.
+  status: not-applicable
+  statusEvidence:
+    - probe: >-
+        GET https://api.cdr.gov.au/cdr-register/v1/energy/data-holders/brands/summary
+        (header x-v: 1), anonymous, 2026-07-27
+      httpStatus: 200
+      result: >-
+        84 energy data-holder brands returned. A case-insensitive search of the
+        full JSON payload for the string "essential" returned ZERO matches.
+        Every brand in the register is a retail energy brand (Origin Energy,
+        AGL, EnergyAustralia, ENGIE, Alinta Energy, Aurora Energy, Powershop,
+        Sumo Power, Kogan Energy, Arcline by RACV, Cooperative Power, RAA Energy
+        and similar). No DNSP appears in the register.
+      conclusion: >-
+        Essential Energy is NOT a designated CDR energy data holder. This is a
+        verified absence from the authoritative public register, not an
+        inference from marketing copy.
+  otherRegimes:
+    greenButton: >-
+      No Green Button / ESPI reference found anywhere on Essential Energy's
+      surfaces. Green Button is a North American standard with no Australian
+      adoption path here.
+    smartMeterInfrastructure: >-
+      Not applicable. Australia has no DCC-style central smart metering
+      infrastructure body; metering data flows to AEMO from metering
+      coordinators, and Essential Energy exposes no metering data API.
+    regulatoryPublishingObligation: >-
+      Essential Energy IS subject to a genuine regulatory PUBLISHING obligation
+      that is not a consumer data right: the Australian Energy Regulator
+      requires every distribution network service provider to publish a
+      Distribution Annual Planning Report (DAPR). Essential Energy satisfies
+      this with a human-readable Rosetta Data Portal web application at
+      https://dapr.essentialenergy.com.au/ (HTTP 200, 2026-07-27) and with
+      machine-queryable ArcGIS FeatureServer tables (DAPR_ZS_Summer_v2,
+      DAPR_ZS_Winter_v2, DAPR_TX_Lines, NIP_ZS_Forecast,
+      Distrib_Feeder_Fcasts). This is a publishing mandate, not a data-access
+      right — no third party can obtain an individual customer's data through
+      it.
+  keyFinding: >-
+    This organization is the clean negative control for the "is a data mandate
+    replicable" question. Australia successfully transplanted its banking data
+    mandate into energy — the register at api.cdr.gov.au proves 84 energy data
+    holders exist and are listed — but the transplant was scoped to the RETAIL
+    layer. The poles-and-wires distributor that physically owns the meters and
+    the network sits entirely outside the mandate, and therefore ships no
+    consumer data API at all. A mandate is only as wide as its designation
+    instrument.
+
+dataStandard:
+  energyStandardImplemented: none
+  note: >-
+    No energy-sector data standard reference was found. No Green Button / ESPI,
+    no CDR Consumer Data Standards (energy) schemas, no IEC CIM 61968/61970, no
+    IEEE 2030.5, no OpenADR, no OCPP/OCPI (despite the EV charging suitability
+    layers). The open surface conforms to the Esri ArcGIS REST API (currentVersion
+    12 reported by the services directory) — a vendor de facto standard for
+    geospatial services, not an energy standard. OGC API - Features was probed on
+    the same services and is NOT enabled (see probes below), so there is no
+    standards-based OpenAPI description available either.
+
+consumerVsMarketDataSplit:
+  consumerDataApi: false
+  consumerDataNote: >-
+    There is no documented API by which a third party can obtain an individual
+    customer's electricity usage, billing or standing data from Essential
+    Energy. Essential Energy is a distributor and has no retail billing
+    relationship with end customers; the customer-facing energy contract, and
+    therefore the CDR consumer-data obligation, sits with the retailer. No
+    customer data endpoint, no consent flow and no accreditation gateway was
+    found on any Essential Energy host.
+  marketDataOpen: true
+  marketDataNote: >-
+    Genuinely open and anonymously machine-readable. Essential Energy operates a
+    public ArcGIS Online organisation (org id 3o0vFs4fJRsuYuBO, urlKey
+    "EssentialEnergy", access "public") whose REST services directory lists 100
+    FeatureServers, all reachable without any credential. Verified anonymous
+    queries returned live field schemas and features. Content covers physical
+    network assets, DER hosting capacity, network planning forecasts and EV
+    charging suitability. Separately, Essential Energy publishes exactly ONE
+    dataset on Data.NSW (CKAN) — "StormTracker" — and that record is only a
+    website link, not a data resource.
+  theSplit: >-
+    Wide open on grid/network data, completely closed on consumer data. The
+    organization exposes the location, type and capacity of essentially every
+    asset it owns, but nothing at all about the people connected to them — and
+    that is not a policy choice about privacy so much as a consequence of where
+    the CDR designation landed.
+
+accessGate:
+  gate: self-serve
+  gated: false
+  whatADeveloperMustDo: >-
+    Nothing. There is no signup, no key, no application, no licence click-through
+    and no partner agreement for the ArcGIS REST surface. A developer issues an
+    anonymous HTTPS GET against
+    https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services?f=json
+    to enumerate the 100 services, then queries any layer, for example
+    .../HostingCapacity_Substation_GEN/FeatureServer/1/query?where=1%3D1&outFields=*&f=json.
+    Services report capabilities of "Query" or "Query,Extract" and a
+    maxRecordCount of 2000. The one gated path is the ordering of formal network
+    data PACKAGES (pole data, network routes) through the Network Information
+    Portal, which Essential Energy positions for Accredited Service Providers,
+    electrical contractors, councils and emergency services and which routes
+    through a request/order workflow rather than an API.
+  noDeveloperPortal: >-
+    Essential Energy publishes no developer portal. developer., developers.,
+    api., docs., data. and opendata..essentialenergy.com.au all return NXDOMAIN.
+    A search result surfaced an Azure API Management developer portal at
+    developer-stg.it.api.essentialenergy.com.au — that hostname no longer
+    resolves (NXDOMAIN, 2026-07-27) and was in any case a staging host.
+
+authModel:
+  scheme: none
+  note: >-
+    Anonymous HTTPS. No API key, no OAuth 2.0, no OpenID Connect, no mTLS and no
+    CDR accreditation applies to the public surface, because the public surface
+    is unauthenticated read-only ArcGIS REST. /.well-known/openid-configuration
+    returned HTTP 404 on www., dapr. and engage..essentialenergy.com.au. No
+    authenticated Essential Energy API was discovered. The Network Information
+    Portal ordering workflow and any ASP self-serve map application sit behind
+    Esri/ArcGIS Online identity, which is a customer/partner login, not a
+    published developer auth scheme.
+
+probes:
+  - url: https://www.essentialenergy.com.au/
+    status: 403
+    note: >-
+      Corporate site is behind Cloudflare bot management; HTML returns 403 to
+      curl and to WebFetch even with a browser user agent. /robots.txt returns
+      200 and is the only HTML-host path that served content.
+  - url: https://www.essentialenergy.com.au/robots.txt
+    status: 200
+  - url: https://www.essentialenergy.com.au/sitemap.xml
+    status: 403
+  - url: https://www.essentialenergy.com.au/.well-known/security.txt
+    status: 404
+  - url: https://www.essentialenergy.com.au/.well-known/openid-configuration
+    status: 404
+  - url: https://www.essentialenergy.com.au/.well-known/ai-plugin.json
+    status: 404
+  - url: https://www.essentialenergy.com.au/favicon.ico
+    status: 200
+    note: image/x-icon, 4079 bytes — used as the provider image.
+  - url: https://developer.essentialenergy.com.au/
+    status: NXDOMAIN
+  - url: https://developers.essentialenergy.com.au/
+    status: NXDOMAIN
+  - url: https://api.essentialenergy.com.au/
+    status: NXDOMAIN
+  - url: https://docs.essentialenergy.com.au/
+    status: NXDOMAIN
+  - url: https://data.essentialenergy.com.au/
+    status: NXDOMAIN
+  - url: https://opendata.essentialenergy.com.au/
+    status: NXDOMAIN
+  - url: https://developer-stg.it.api.essentialenergy.com.au/
+    status: NXDOMAIN
+    note: >-
+      Appeared in search results as an "Essential Energy - Developer Portal"
+      (Azure API Management). Does not resolve as of 2026-07-27. Recorded as a
+      dead lead, not as a portal.
+  - url: https://developer.it.api.essentialenergy.com.au/
+    status: NXDOMAIN
+  - url: https://dapr.essentialenergy.com.au/
+    status: 200
+    note: >-
+      "Essential Energy DAPR - Rosetta Data Portal" web application. HTML only.
+      /api returned 404, /openapi.json 404, /swagger.json 404, /api-docs 404.
+  - url: https://engage.essentialenergy.com.au/access-to-network-data
+    status: 200
+    note: >-
+      Explains Network Information Portal access for ASPs, electrical
+      contractors, councils and emergency services; describes ordering network
+      data packages from the map. No API, fee schedule or agreement documented
+      on the page.
+  - url: https://essentialenergy.maps.arcgis.com/sharing/rest/portals/self?f=json
+    status: 200
+    note: >-
+      ArcGIS Online org — id 3o0vFs4fJRsuYuBO, name "Essential Energy", urlKey
+      "EssentialEnergy", access "public". Saved verbatim.
+  - url: https://www.arcgis.com/sharing/rest/search?q=orgid:3o0vFs4fJRsuYuBO&f=json&num=100
+    status: 200
+    note: >-
+      184 public items across the organisation (Feature Services, Web Maps,
+      Dashboards, Web Mapping Applications, a Web Experience). Fully paginated
+      and saved verbatim.
+  - url: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services?f=json
+    status: 200
+    note: >-
+      Anonymous services directory, currentVersion 12, 100 FeatureServers. Saved
+      verbatim. This is the de facto API surface.
+  - url: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/HostingCapacity_Substation_GEN/FeatureServer/1/query?where=1%3D1&outFields=*&resultRecordCount=2&f=json
+    status: 200
+    note: >-
+      Anonymous query succeeded and returned live field definitions and point
+      features. Confirms the surface is queryable without credentials. (Layer id
+      is 1, not 0 — querying /0/query returns an ArcGIS error object.)
+  - url: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/EE_Service_Areas/FeatureServer/0/query?where=1%3D1&outFields=*&returnGeometry=false&resultRecordCount=3&f=json
+    status: 200
+    note: Anonymous query succeeded; returned service-area polygon schema.
+  - url: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/EE_Service_Areas/OGCFeatureServer?f=json
+    status: 200
+    note: >-
+      HTTP 200 but the body is an ArcGIS error object ({"error":{"code":400,
+      "message":"Invalid URL"}}). /api and /collections behave identically. OGC
+      API - Features is NOT enabled, so no standards-based OpenAPI document is
+      available from these services.
+  - url: https://data.nsw.gov.au/data/api/3/action/organization_show?id=essential-energy&include_datasets=true
+    status: 200
+    note: >-
+      CKAN reports Essential Energy as a publisher with package_count 1. The one
+      dataset is "StormTracker" (CC-BY), and its single resource is a "website
+      link" to http://www.essentialenergy.com.au/content/stormtracker — not a
+      data file and not an API.
+  - url: https://api.cdr.gov.au/cdr-register/v1/energy/data-holders/brands/summary
+    status: 200
+    note: >-
+      84 energy data-holder brands. No Essential Energy entry. See
+      mandate.statusEvidence.
+  - url: https://api.github.com/orgs/essential-energy
+    status: 200
+    note: >-
+      A GitHub org named "Essential-Energy" exists but was created 2026-05-14
+      with 0 public repos, no description, no blog and no location. There is no
+      evidence linking it to the NSW distributor, so it is deliberately NOT
+      recorded in apis.yml.
+  - url: https://api.github.com/orgs/essentialenergy
+    status: 404
+
+artifacts:
+  openapi: []
+  openapiNote: >-
+    No OpenAPI, AsyncAPI, GraphQL schema, Postman collection or other
+    machine-readable API contract is published by Essential Energy, and none was
+    fabricated. The only machine-readable descriptions available are the ArcGIS
+    REST service metadata documents, harvested verbatim below.
+  arcgis:
+    - file: arcgis/essential-energy-arcgis-portal-self.json
+      source: https://essentialenergy.maps.arcgis.com/sharing/rest/portals/self?f=json
+      httpStatus: 200
+      fetched: '2026-07-27'
+    - file: arcgis/essential-energy-arcgis-services-catalog.json
+      source: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services?f=json
+      httpStatus: 200
+      fetched: '2026-07-27'
+      note: 100 FeatureServers, currentVersion 12.
+    - file: arcgis/essential-energy-arcgis-public-items.json
+      source: https://www.arcgis.com/sharing/rest/search?q=orgid:3o0vFs4fJRsuYuBO&f=json&num=100
+      httpStatus: 200
+      fetched: '2026-07-27'
+      note: >-
+        Wrapper adds query/source/harvested/total keys around the verbatim
+        paginated results array (184 items).
+    - file: arcgis/essential-energy-ee-service-areas-featureserver.json
+      source: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/EE_Service_Areas/FeatureServer?f=json
+      httpStatus: 200
+      fetched: '2026-07-27'
+    - file: arcgis/essential-energy-substation-featureserver.json
+      source: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/Substation/FeatureServer?f=json
+      httpStatus: 200
+      fetched: '2026-07-27'
+      note: serviceDescription "EE Substation"; capabilities Query,Extract.
+    - file: arcgis/essential-energy-hostingcapacity-substation-gen-featureserver.json
+      source: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/HostingCapacity_Substation_GEN/FeatureServer?f=json
+      httpStatus: 200
+      fetched: '2026-07-27'
+      note: serviceDescription "Hosting Capacity MVP – GEN dataset for Experience Builder".
+    - file: arcgis/essential-energy-hostingcapacity-substation-load-featureserver.json
+      source: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/HostingCapacity_Substation_LOAD/FeatureServer?f=json
+      httpStatus: 200
+      fetched: '2026-07-27'
+      note: serviceDescription "Hosting Capacity MVP – LOAD dataset for Experience Builder".
+    - file: arcgis/essential-energy-hostingcapacity-service-areas-featureserver.json
+      source: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/HostingCapacity_Service_Areas/FeatureServer?f=json
+      httpStatus: 200
+      fetched: '2026-07-27'
+    - file: arcgis/essential-energy-dapr-zs-summer-v2-featureserver.json
+      source: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/DAPR_ZS_Summer_v2/FeatureServer?f=json
+      httpStatus: 200
+      fetched: '2026-07-27'
+    - file: arcgis/essential-energy-dapr-tx-lines-featureserver.json
+      source: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/DAPR_TX_Lines/FeatureServer?f=json
+      httpStatus: 200
+      fetched: '2026-07-27'
+    - file: arcgis/essential-energy-distrib-feeder-fcasts-featureserver.json
+      source: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/Distrib_Feeder_Fcasts/FeatureServer?f=json
+      httpStatus: 200
+      fetched: '2026-07-27'
+    - file: arcgis/essential-energy-nip-zs-forecast-featureserver.json
+      source: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/NIP_ZS_Forecast/FeatureServer?f=json
+      httpStatus: 200
+      fetched: '2026-07-27'
+    - file: arcgis/essential-energy-ev-pois-featureserver.json
+      source: https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services/EV_POIs/FeatureServer?f=json
+      httpStatus: 200
+      fetched: '2026-07-27'
+      note: >-
+        Five layers — POIs, First/Second Pass Areas, First/Second Pass Suitable
+        Pole Clusters — i.e. EV charging siting analysis on distribution poles.
+
+sources:
+  - url: https://data.nsw.gov.au/data/api/3/action/organization_show?id=essential-energy
+    type: Reference
+    note: >-
+      Official Data.NSW organisation description — "a NSW Government-owned
+      corporation, with responsibility for building, operating and maintaining
+      Australia's largest electricity network - delivering essential network
+      services to homes and businesses across 95 per cent of NSW and parts of
+      southern Queensland."
+  - url: https://en.wikipedia.org/wiki/Essential_Energy
+    type: Reference
+    note: >-
+      Corroborates HQ (Port Macquarie), formation 1 March 2011 out of the
+      Country Energy restructure, statutory state-owned corporation status,
+      Essential Water subsidiary in Broken Hill, and its position as one of
+      three NSW DNSPs alongside Ausgrid and Endeavour Energy.
+  - url: https://engage.essentialenergy.com.au/access-to-network-data
+    type: Documentation
+    note: Network Information Portal access model.
+  - url: https://engage.essentialenergy.com.au/level3asp/news_feed/network-information-portal-stage-1-pilot
+    type: Documentation
+    note: Network Information Portal Stage 1 pilot announcement for Level 3 ASPs.
+  - url: https://api.cdr.gov.au/cdr-register/v1/energy/data-holders/brands/summary
+    type: Reference
+    note: Authoritative public CDR energy data-holder register. Essential Energy absent.
+
+conclusions:
+  status: built
+  apisListed: 3
+  developerPortal: ''
+  developerPortalNote: >-
+    None published. The self-serve machine surface a developer actually uses is
+    the anonymous ArcGIS REST services directory at
+    https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services — live,
+    200, no credential — but Essential Energy does not present it as a developer
+    portal and does not document it.
+  specsHarvested: 0
+  arcgisDescriptorsHarvested: 13
+  headline: >-
+    Open grid data, closed consumer data, and a national data mandate that
+    stops one layer short of the company that owns the wires.
