@@ -21,6 +21,17 @@ description: >-
   service points), DER hosting capacity for generation and load, zone substation and
   distribution feeder forecasts from the Distribution Annual Planning Report, and EV
   charging suitability analysis. Open market and network data, closed consumer data.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.essentialenergy.com.au/favicon.ico
 tags:
 - Energy
