@@ -1,4 +1,4 @@
-# Essential Energy (essential-energy)
+# Essential Energy
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,132 +66,113 @@
 
 Essential Energy is a New South Wales Government-owned statutory corporation and the distribution network service provider (DNSP) for 95 per cent of the geographic area of NSW plus parts of southern Queensland — the poles, wires, substations and streetlights, not the retail energy contract. Headquartered in Port Macquarie and formed in 2011 out of the restructure of Country Energy, it sits in the regulated network layer of the Australian electricity value chain alongside Ausgrid and Endeavour Energy, under Australian Energy Regulator economic regulation. Its API posture splits cleanly and the split is the finding: Essential Energy publishes NO consumer data API and NO developer portal, and it is NOT a designated data holder under the Consumer Data Right energy regime — the CDR energy obligation lands on electricity retailers and AEMO, not on distributors, and Essential Energy does not appear anywhere in the public CDR energy data-holder brand register. What it does publish, anonymously and without a key, is a genuinely open grid-data surface: an ArcGIS Online organisation exposing 100 public ArcGIS REST FeatureServers covering network assets (poles, spans, cables, transformers, substations, streetlights, service points), DER hosting capacity for generation and load, zone substation and distribution feeder forecasts from the Distribution Annual Planning Report, and EV charging suitability analysis. Open market and network data, closed consumer data.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/essential-energy/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/essential-energy/refs/heads/main/apis.yml)
+**Areas:** Energy · Australia · Utilities · Electricity · Grid · Network Distributor · Open Data · GIS · DER · Hosting Capacity · EV Charging · Renewables
 
-## Tags
+## Essential Energy on APIs.io
 
-- Energy
-- Australia
-- Utilities
-- Electricity
-- Grid
-- Network Distributor
-- Open Data
-- GIS
-- DER
-- Hosting Capacity
-- EV Charging
-- Renewables
-- New South Wales
+Everything profiled for Essential Energy is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/essential-energy/](https://apis.io/providers/essential-energy/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (3)
 
-- **Created:** 2026-07-27
-- **Modified:** 2026-07-27
+- [Essential Energy Network Asset Feature Services](https://apis.io/apis/essential-energy/essential-energy-network-asset-feature-services/) — Anonymous, key-free ArcGIS REST FeatureServer endpoints publishing Essential Energy's physical distribution network as queryable geospatial features — poles…
+- [Essential Energy Hosting Capacity Feature Services](https://apis.io/apis/essential-energy/essential-energy-hosting-capacity-feature-services/) — Anonymous ArcGIS REST FeatureServer endpoints publishing Essential Energy's distributed energy resource hosting capacity — how much generation (GEN) and…
+- [Essential Energy Network Planning and DAPR Feature Services](https://apis.io/apis/essential-energy/essential-energy-network-planning-feature-services/) — Anonymous ArcGIS REST FeatureServer tables and layers publishing Essential Energy's regulated network planning data — zone substation summer and winter…
 
-## APIs
+### Published properties
 
-### Essential Energy Network Asset Feature Services
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Anonymous, key-free ArcGIS REST FeatureServer endpoints publishing Essential Energy's physical distribution network as queryable geospatial features — poles (timber, concrete, metal, composite), spans, cables, transformers, substations, zone substation sites, streetlights and controllers, service points, switchgear, fuses, reclosers, pillars, pits, towers, cross-arms, third-party attachments and the network service-area boundaries. Every service supports the standard ArcGIS REST `/query` operation over HTTPS GET with no authentication. These are the services backing Essential Energy's public Network Information Portal map viewer.
+#### Agentic access (1)
 
-- **Human URL:** [Network Information Portal](https://essentialenergy.maps.arcgis.com/apps/webappviewer/index.html?id=947af3fb3749427e97a4824dcbd49980)
-- **Base URL:** `https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Essential Energy Agentic Access](https://apis.io/agentic-access/essential-energy/essential-energy-agentic-access/)
 
-- Grid
-- GIS
-- Network Assets
-- Open Data
-- Geospatial
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Reference](arcgis/essential-energy-arcgis-services-catalog.json)
-- [Reference](arcgis/essential-energy-ee-service-areas-featureserver.json)
-- [Reference](arcgis/essential-energy-substation-featureserver.json)
-- [Reference](arcgis/essential-energy-arcgis-public-items.json)
-- [Reference](arcgis/essential-energy-arcgis-portal-self.json)
-- [API Reference](https://developers.arcgis.com/rest/services-reference/enterprise/feature-service/)
-- [Documentation](https://engage.essentialenergy.com.au/access-to-network-data)
-- [Portal](https://essentialenergy.maps.arcgis.com/apps/webappviewer/index.html?id=947af3fb3749427e97a4824dcbd49980)
+- [Essential Energy network data dictionary Vocabulary](https://apis.io/vocabularies/essential-energy/essential-energy-vocabulary/)
 
-### Essential Energy Hosting Capacity Feature Services
+#### Examples (5)
 
-Anonymous ArcGIS REST FeatureServer endpoints publishing Essential Energy's distributed energy resource hosting capacity — how much generation (GEN) and load (LOAD) the network can absorb — at substation level and as 1km, 5km and 15km hexbin aggregations, together with spare-capacity service areas and substation capacity layers. The service descriptions self-identify as "Hosting Capacity MVP – GEN dataset for Experience Builder" and "Hosting Capacity MVP – LOAD dataset for Experience Builder", and back the public network capacity map experience.
+Example requests and responses.
 
-- **Human URL:** [Network Capacity Map experience](https://experience.arcgis.com/experience/9e19707948544a3285a3631d0ed576f8)
-- **Base URL:** `https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services`
+- [Essential Energy Dapr Zs Summer Query Response](https://apis.io/examples/essential-energy/essential-energy-dapr-zs-summer-query-response/)
+- [Essential Energy Error Invalid Field Response](https://apis.io/examples/essential-energy/essential-energy-error-invalid-field-response/)
+- [Essential Energy Hostingcapacity Gen Query Response](https://apis.io/examples/essential-energy/essential-energy-hostingcapacity-gen-query-response/)
+- [Essential Energy Service Areas Geojson Response](https://apis.io/examples/essential-energy/essential-energy-service-areas-geojson-response/)
+- [Essential Energy Substation Count Response](https://apis.io/examples/essential-energy/essential-energy-substation-count-response/)
 
-#### Tags
+#### Security (3)
 
-- DER
-- Hosting Capacity
-- Solar
-- Grid
-- Open Data
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Essential Energy Authentication](https://apis.io/security/essential-energy/essential-energy-authentication/)
+- [Essential Energy Domain Security](https://apis.io/security/essential-energy/essential-energy-domain-security/)
+- [Essential Energy Vulnerability Disclosure](https://apis.io/security/essential-energy/essential-energy-vulnerability-disclosure/)
 
-- [Reference](arcgis/essential-energy-hostingcapacity-substation-gen-featureserver.json)
-- [Reference](arcgis/essential-energy-hostingcapacity-substation-load-featureserver.json)
-- [Reference](arcgis/essential-energy-hostingcapacity-service-areas-featureserver.json)
-- [Reference](arcgis/essential-energy-arcgis-services-catalog.json)
-- [API Reference](https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer/)
-- [Portal](https://experience.arcgis.com/experience/9e19707948544a3285a3631d0ed576f8)
+## Where to find this API
 
-### Essential Energy Network Planning and DAPR Feature Services
-
-Anonymous ArcGIS REST FeatureServer tables and layers publishing Essential Energy's regulated network planning data — zone substation summer and winter ratings and forecasts (`DAPR_ZS_Summer_v2`, `DAPR_ZS_Winter_v2`, `NIP_ZS_Forecast`), transmission line data (`DAPR_TX_Lines`) and distribution feeder forecasts (`Distrib_Feeder_Fcasts`) derived from the Distribution Annual Planning Report that the Australian Energy Regulator requires every distributor to publish, plus EV charging point-of-interest and pole-suitability analysis layers. The human-readable DAPR is separately published through a Rosetta Data Portal web application, which exposes no API of its own.
-
-- **Human URL:** [Essential Energy DAPR — Rosetta Data Portal](https://dapr.essentialenergy.com.au/)
-- **Base URL:** `https://services-ap1.arcgis.com/3o0vFs4fJRsuYuBO/arcgis/rest/services`
-
-#### Tags
-
-- Energy Markets
-- Network Planning
-- Forecasting
-- EV Charging
-- Open Data
-
-#### Properties
-
-- [Reference](arcgis/essential-energy-dapr-zs-summer-v2-featureserver.json)
-- [Reference](arcgis/essential-energy-dapr-tx-lines-featureserver.json)
-- [Reference](arcgis/essential-energy-distrib-feeder-fcasts-featureserver.json)
-- [Reference](arcgis/essential-energy-nip-zs-forecast-featureserver.json)
-- [Reference](arcgis/essential-energy-ev-pois-featureserver.json)
-- [Documentation](https://dapr.essentialenergy.com.au/)
-- [API Reference](https://developers.arcgis.com/rest/services-reference/enterprise/feature-service/)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.essentialenergy.com.au/)
-- [LinkedIn](https://www.linkedin.com/company/essential-energy)
-- [Portal](https://essentialenergy.maps.arcgis.com/apps/webappviewer/index.html?id=947af3fb3749427e97a4824dcbd49980)
 - [Documentation](https://engage.essentialenergy.com.au/access-to-network-data)
-- [Documentation](https://dapr.essentialenergy.com.au/)
-- [Reference](arcgis/essential-energy-arcgis-services-catalog.json)
-- [Reference](arcgis/essential-energy-arcgis-public-items.json)
-- [Reference](arcgis/essential-energy-arcgis-portal-self.json)
+- [Support](https://www.essentialenergy.com.au/contact-us)
+- [Blog](https://www.essentialenergy.com.au/media-centre/media-release)
+- [Security](https://www.essentialenergy.com.au/about-us/corporate-governance/vulnerability-disclosure-policy)
+- [Terms of service](https://www.essentialenergy.com.au/termsofuse)
+- [Privacy policy](https://www.essentialenergy.com.au/privacy)
 
-## Mandate Posture
+## API Evangelist rating
 
-| Question | Finding |
-| --- | --- |
-| Mandate regime | **none** — the Consumer Data Right energy regime does not reach distributors |
-| Mandate status | **not-applicable** — verified absent from the public CDR energy data-holder register (84 brands, zero matches for "essential") |
-| Data standard | none — no Green Button/ESPI, no CDR Consumer Data Standards, no IEC CIM; the open surface is Esri ArcGIS REST API v12 |
-| Consumer data API | **No** |
-| Open market/grid data | **Yes** — 100 anonymous ArcGIS REST FeatureServers |
-| Access gate | **self-serve** (in practice, fully anonymous — no key, no signup) |
-| Auth model | none on the public surface; `/.well-known/openid-configuration` returns 404 |
-| Developer portal | none published; `developer.`, `developers.`, `api.`, `docs.`, `data.`, `opendata.` all NXDOMAIN |
+**Kin Score 28.2** — thin · rubric 0.24.0 · scored 2026-10-17
 
-Full probe log, HTTP statuses and provenance are in [`review.yml`](review.yml).
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 6.5 |
+| Contract governance | 22.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 47.0 |
+| Access clarity | 21.1 |
 
-## Maintainers
+**Agent readiness 9.4** — agent-aware
 
-- Kin Lane &lt;kin@apievangelist.com&gt;
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 25.4** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/essential-energy/](https://apis.io/providers/essential-energy/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Essential Energy: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/essential-energy/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
